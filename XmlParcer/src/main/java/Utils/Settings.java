@@ -19,7 +19,7 @@ public class Settings {
     }
 
     public String getFile() throws IOException {
-        String file = ReadProperties().getProperty("file");
+        String file = ReadProperties().getProperty("uri");
         return file;
     }
 
@@ -41,5 +41,10 @@ public class Settings {
     public String getPassword() throws IOException {
         String password = ReadProperties().getProperty("password");
         return password;
+    }
+
+    public String getNameFile() throws IOException {
+        String name = ReadProperties().getProperty("nameFile");
+        return name;
     }
 }
