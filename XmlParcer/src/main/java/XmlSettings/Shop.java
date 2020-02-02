@@ -1,32 +1,36 @@
 package XmlSettings;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+import java.awt.*;
+
+/**
+ * Класс описываает методы дял работы с Shop.dtd
+ */
 public class Shop {
-    private String name;
-    public String company;
+    public List categories;
 
-    public String getName() {
-        return name;
+    public Shop(Document document){
+        categories = GetCategories(document);
     }
 
-    public void setName(String name) {
-        this.name = name;
+    private List GetCategories(Document document){
+        List categories = new List();
+        Element root = document.getDocumentElement();
+        System.out.println(root);
+        NodeList employeeElements = document.getDocumentElement().getElementsByTagName("shop");
+        for(int i=0; i < employeeElements.getLength() ; i ++){
+            Node nNode = employeeElements.item(i);
+            Element eElement = (Element) nNode;
+            categories.add(eElement
+                    .getElementsByTagName("categories")
+                    .item(i)
+                    .getTextContent());
+        }
+        return categories;
     }
 
-    public String getCompany() {
-        return company;
-    }
-
-    public void setCompany(String company) {
-        this.company = company;
-    }
-
-    public String getUri() {
-        return uri;
-    }
-
-    public void setUri(String uri) {
-        this.uri = uri;
-    }
-
-    public String uri;
 }

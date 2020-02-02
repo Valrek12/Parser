@@ -2,7 +2,11 @@ package XmlSettings;
 
 import Utils.Settings;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.EntityResolver;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import javax.xml.bind.JAXBException;
@@ -10,12 +14,16 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringReader;
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 
 public class XmlDeserialization {
 
@@ -23,7 +31,7 @@ public class XmlDeserialization {
     private String xmlFIle;
     private String nameFile;
 
-    private File DownloadXml(String xmlFIle) throws ParserConfigurationException, IOException, SAXException, TransformerException {DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+    private File DownloadXml(String xmlFIle) throws  IOException {
         InputStream in = new URL(xmlFIle).openStream();
         Files.copy(in, Paths.get(nameFile));
         File file = new File(nameFile);
@@ -36,18 +44,30 @@ public class XmlDeserialization {
         nameFile = settings.getNameFile();
     }
 
-    public Document Run() throws JAXBException, IOException, SAXException, ParserConfigurationException, TransformerException {
-        DownloadXml(xmlFIle);
-        File file = new File(nameFile);
+    public Document getDocument() throws JAXBException, IOException, SAXException, ParserConfigurationException, TransformerException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         // Получили из фабрики билдер, который парсит XML, создает структуру Document в виде иерархического дерева.
         DocumentBuilder builder = factory.newDocumentBuilder();
-        System.out.println(nameFile);
-        Document document = builder.parse(file);
-        NodeList employeeElements = document.getDocumentElement().getElementsByTagName("Shop");
-        System.out.println(employeeElements);
+        builder.setEntityResolver(new EntityResolver() {
+            @Override
+            public InputSource resolveEntity(String publicId, String systemId)
+                    throws SAXException, IOException {
+                if (systemId.contains("shops.dtd")) {
+                    return new InputSource(new StringReader(""));
+                } else {
+                    return null;
+                }
+            }
+        });
+        Document document = builder.parse(nameFile);
         return  document;
-
     }
+
+    public void Run() throws IOException, TransformerException, ParserConfigurationException, SAXException, JAXBException {
+        Shop shop = new Shop(getDocument());
+        System.out.println(Arrays.toString(shop.categories.getItems()));
+    }
+
+
 
 }
