@@ -1,4 +1,5 @@
-import XmlSettings.XmlDeserialization;
+import XmlSettings.Categories;
+import XmlSettings.XmlUtils;
 import org.xml.sax.SAXException;
 
 import javax.xml.bind.JAXBException;
@@ -8,7 +9,9 @@ import java.io.IOException;
 
 public class XmlParcelRuining {
     public static void main(String[] args) throws JAXBException, IOException, ParserConfigurationException, SAXException, TransformerException {
-        XmlDeserialization XmlPaced = new XmlDeserialization();
-        XmlPaced.Run();
+        XmlUtils xmlPaced = new XmlUtils();
+        xmlPaced.DownloadXml(xmlPaced.xmlFIle);
+        Categories.getCategories(xmlPaced);
+        xmlPaced.DeleteXml();
     }
 }
