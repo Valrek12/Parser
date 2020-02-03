@@ -7,8 +7,6 @@ import javax.xml.transform.TransformerException;
 import java.io.IOException;
 
 public class XmlParcelRuining {
-
-
     public static void main(String[] args) throws JAXBException, IOException, ParserConfigurationException, SAXException, TransformerException {
         XmlDeserialization XmlPaced = new XmlDeserialization();
         XmlPaced.Run();
