@@ -16,7 +16,6 @@ public class Shop {
     public Shop(Document document){
         categories = GetCategories(document);
     }
-
     private List GetCategories(Document document){
         List categories = new List();
         Element root = document.getDocumentElement();

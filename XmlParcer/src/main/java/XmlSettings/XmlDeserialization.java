@@ -1,10 +1,7 @@
 package XmlSettings;
 
 import Utils.Settings;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import org.w3c.dom.*;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -23,6 +20,7 @@ import java.lang.reflect.Array;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class XmlDeserialization {
@@ -30,6 +28,7 @@ public class XmlDeserialization {
     private Settings settings;
     private String xmlFIle;
     private String nameFile;
+    private static ArrayList<Categories> categories = new ArrayList<>();
 
     private File DownloadXml(String xmlFIle) throws  IOException {
         InputStream in = new URL(xmlFIle).openStream();
@@ -64,7 +63,21 @@ public class XmlDeserialization {
     }
 
     public void Run() throws IOException, TransformerException, ParserConfigurationException, SAXException, JAXBException {
+        NodeList employeeElements = getDocument().getDocumentElement().getElementsByTagName("category");
+
+        for (int i = 0; i < employeeElements.getLength(); i++) {
+            Node employee = employeeElements.item(i);
+            // Получение атрибутов каждого элемента
+            NamedNodeMap attributes = employee.getAttributes();
+            // Добавление сотрудника. Атрибут - тоже Node, потому нам нужно получить значение атрибута с помощью метода getNodeValue()
+            categories.add(new Categories(attributes.getNamedItem("id").getNodeValue(), attributes.getNamedItem("parentId").getNodeValue()));
+
+            for (Categories categories : categories)
+                System.out.println(String.format(" id - %s, parentId - %s, name categories ", categories.getId(), categories.getParentId()));
+        }
+
         Shop shop = new Shop(getDocument());
+
         System.out.println(Arrays.toString(shop.categories.getItems()));
     }
 
