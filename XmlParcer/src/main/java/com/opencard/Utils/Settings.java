@@ -1,4 +1,4 @@
-package Utils;
+package com.opencard.Utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;

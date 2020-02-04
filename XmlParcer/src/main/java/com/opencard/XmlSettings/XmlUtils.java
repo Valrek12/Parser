@@ -1,6 +1,6 @@
-package XmlSettings;
+package com.opencard.XmlSettings;
 
-import Utils.Settings;
+import com.opencard.Utils.Settings;
 import org.w3c.dom.Document;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;

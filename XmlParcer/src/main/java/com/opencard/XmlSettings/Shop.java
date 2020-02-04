@@ -1,4 +1,4 @@
-package XmlSettings;
+package com.opencard.XmlSettings;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

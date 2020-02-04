@@ -1,4 +1,4 @@
-package XmlSettings;
+package com.opencard.XmlSettings;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.Element;
