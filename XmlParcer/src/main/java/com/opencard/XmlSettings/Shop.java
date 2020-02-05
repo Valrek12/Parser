@@ -1,5 +1,6 @@
 package com.opencard.XmlSettings;
 
+import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -16,6 +17,7 @@ public class Shop {
     public Shop(Document document){
         categories = GetCategories(document);
     }
+    @NotNull
     private List GetCategories(Document document){
         List categories = new List();
         Element root = document.getDocumentElement();
