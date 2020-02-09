@@ -1,4 +1,5 @@
-package com.opencard.XmlSettings;
+package com.opencard.XmlEntity;
+import com.opencard.Utils.XmlUtils;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.Element;
@@ -19,7 +20,12 @@ public class XmlCategories {
     private static ArrayList<XmlCategories> categories = new ArrayList<XmlCategories>();
 
     @Contract(pure = true)
-    public XmlCategories(int id, int parentId, String name) {
+    public XmlCategories(){
+
+    }
+
+    @Contract(pure = true)
+    private XmlCategories(int id, int parentId, String name) {
         this.id = id;
         this.parentId = parentId;
         this.name = name;

@@ -1,4 +1,4 @@
-package com.opencard.XmlSettings;
+package com.opencard.XmlEntity;
 
 import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.Document;
