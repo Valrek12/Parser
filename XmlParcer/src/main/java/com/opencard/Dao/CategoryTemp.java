@@ -5,10 +5,9 @@ import org.javalite.activejdbc.annotations.Table;
 
 import java.util.Date;
 
-@Table("oc3_category")
-public class Category extends Model {
-
-    public Category(){
+@Table("oc3_category_temp")
+public class CategoryTemp extends Model {
+    public CategoryTemp(){
     }
 
     public void setCategoryId(int id){
@@ -67,12 +66,12 @@ public class Category extends Model {
         return getBoolean("sort_order");
     }
 
-    public void setStatus(int status){
+    public void setStatus(boolean status){
         set("status", status);
     }
 
-    public boolean getStatus(){
-        return getBoolean("status");
+    public int getStatus(){
+        return getInteger("status");
     }
 
     public void setStickers(boolean stickers){
