@@ -18,7 +18,7 @@ public class Shop {
         categories = GetCategories(document);
     }
     @NotNull
-    private List GetCategories(Document document){
+    private List GetCategories(@NotNull Document document){
         List categories = new List();
         Element root = document.getDocumentElement();
         System.out.println(root);

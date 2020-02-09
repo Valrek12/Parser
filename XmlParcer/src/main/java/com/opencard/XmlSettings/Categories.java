@@ -16,7 +16,7 @@ public class Categories {
     private int id;
     private int parentId;
     private  String name;
-    private static ArrayList<Categories> categories = new ArrayList<>();
+    private static ArrayList<Categories> categories = new ArrayList<Categories>();
 
     @Contract(pure = true)
     public Categories(int id, int parentId, String name) {

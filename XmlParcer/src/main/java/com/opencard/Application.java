@@ -1,20 +1,23 @@
 package com.opencard;
 
-import com.jcraft.jsch.JSchException;
-import com.opencard.DbConnection.AddedToTable;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.xml.sax.SAXException;
+import com.opencard.Dao.Category;
+import com.opencard.Utils.Settings;
+import org.javalite.activejdbc.Base;
+import org.javalite.activejdbc.LazyList;
+import org.javalite.activejdbc.Model;
 
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 
-@SpringBootApplication
 public class Application {
-    public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException, JSchException {
-        SpringApplication.run(Application.class, args);
-        AddedToTable addedToTable = new AddedToTable();
-        addedToTable.Run();
 
+    public static void main(String[] args) throws  IOException {
+        Settings settings = new Settings();
+        Base.open(settings.getDriver(), settings.getServer(), settings.getLogin(),settings.getPassword());
+        System.out.println(Base.findAll("select * from oc3_category "));
+        LazyList<Model> categoryDao = Category.find("category_id = ?", 1);
+
+        System.out.println(categoryDao);
     }
+
+
 }

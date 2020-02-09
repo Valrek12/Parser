@@ -47,4 +47,9 @@ public class Settings {
         String name = ReadProperties().getProperty("nameFile");
         return name;
     }
+
+    public String getDriver() throws IOException {
+        String driver = ReadProperties().getProperty("driver");
+        return driver;
+    }
 }
