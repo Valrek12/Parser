@@ -3,7 +3,7 @@ package com.opencard.Dao;
 import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.annotations.Table;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Table("oc3_category")
 public class Category extends Model {

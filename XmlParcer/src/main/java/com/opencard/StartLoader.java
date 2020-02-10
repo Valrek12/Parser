@@ -1,5 +1,7 @@
 package com.opencard;
 
+import com.opencard.Dao.Category;
+import com.opencard.Dao.CategoryTemp;
 import com.opencard.Mapping.Mapping;
 import com.opencard.Utils.DbConnector;
 import com.opencard.Utils.XmlUtils;
@@ -21,7 +23,20 @@ public class StartLoader {
 
   public void LoadDataBaseData() throws ParserConfigurationException, SAXException, IOException {
       connector.ConnectionOpen();
+      CreateDump();
       xmlUtils.DownloadXml(xmlUtils.xmlFIle);
+      Category.deleteAll();
       mapping.CategoryMapping();
+      connector.ConnectionClose();
   }
+
+  public void CreateDump() throws IOException {
+      if(CategoryTemp.findAll()!= null){
+          CategoryTemp.deleteAll();
+          Mapping mapping = new Mapping();
+          mapping.DumpTable();
+      }
+  }
+
+
 }

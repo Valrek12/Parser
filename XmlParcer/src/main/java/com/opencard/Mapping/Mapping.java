@@ -10,59 +10,41 @@ import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Mapping {
-    private Category category;
     private XmlUtils xmlUtils;
-    private CategoryTemp categoryTemp;
+    private DateFormat dateFormat;
 
 
     public Mapping() throws IOException {
-        this.category = new Category();
         this.xmlUtils = new XmlUtils();
-        this.categoryTemp = new CategoryTemp();
+        this.dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     }
 
     @Contract(pure = true)
     public void CategoryMapping() throws IOException, SAXException, ParserConfigurationException {
         ArrayList<XmlCategories> xmlCategories = XmlCategories.getCategories(xmlUtils);
         for(XmlCategories xmlCategory: xmlCategories){
-            this.category.setCategoryId(xmlCategory.getId());
-            this.category.setParentId(xmlCategory.getParentId());
-            this.category.setColumn(2);
-            this.category.setImage("");
-            this.category.setStatus(1);
-            this.category.setSortOrder(false);
-            this.category.setDateAdded(new Date());
-            this.category.setDateModified(new Date());
-            this.category.setStickers(true);
-            this.category.setSortOrder(true);
-            this.category.setTop(true);
-            this.category.save();
+            Category category = new Category();
+            category.setCategoryId(xmlCategory.getId());
+            category.setParentId(xmlCategory.getParentId());
+            category.save();
         }
     }
 
     public void DumpTable(){
         LazyList<Category> categoryArrayList = Category.findAll();
         for(Category model: categoryArrayList){
+            CategoryTemp categoryTemp = new CategoryTemp();
             categoryTemp.setCategoryId(model.getCategoryId());
             categoryTemp.setParentId(model.getParentId());
-            categoryTemp.setColumn(model.getColumn());
-            categoryTemp.setImage(model.getImage());
-            categoryTemp.setStatus(model.getStatus());
-            categoryTemp.setSortOrder(model.getSortOrder());
-            categoryTemp.setDateAdded(model.getDateAdded());
-            categoryTemp.setDateModified(model.getDateModified());
-            categoryTemp.setStickers(model.getStickers());
-            categoryTemp.setTop(model.getTop());
+            System.out.println();
             categoryTemp.save();
-            System.out.println(categoryTemp.getCategoryId());
         }
-
-
-
+        System.out.println("Данные успешно выгружены в таблицу oc3_category_temp");
     }
 
 
