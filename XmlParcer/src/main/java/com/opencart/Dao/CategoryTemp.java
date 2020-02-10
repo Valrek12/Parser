@@ -1,4 +1,4 @@
-package com.opencard.Dao;
+package com.opencart.Dao;
 
 import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.annotations.Table;

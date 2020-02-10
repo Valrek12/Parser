@@ -1,5 +1,8 @@
-package com.opencard.XmlEntity;
-import com.opencard.Utils.XmlUtils;
+package com.opencart.XmlEntity;
+
+import com.opencart.Utils.XmlUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.Element;
@@ -18,6 +21,7 @@ public class XmlCategories {
     private int parentId;
     private  String name;
     private static ArrayList<XmlCategories> categories = new ArrayList<XmlCategories>();
+    private static final Logger logger = LogManager.getLogger(XmlCategories.class);
 
     @Contract(pure = true)
     public XmlCategories(){
@@ -57,9 +61,10 @@ public class XmlCategories {
                 categories.add(new XmlCategories(Integer.parseInt(attributes.getNamedItem("id").getNodeValue()), 0,  eElement.getFirstChild().getNodeValue()));
             }
         }
-        for (XmlCategories categories : categories)
-            System.out.println(String.format(" id - %s, parentId - %s, name - %s", categories.getId(), categories.getParentId(), categories.getName()));
-
+        for (XmlCategories categories : categories){
+            logger.debug(String.format(" id - %s, parentId - %s, name - %s", categories.getId(), categories.getParentId(), categories.getName()));
+        }
+            logger.debug("Парсинг категорий прошел успешно");
         return categories;
     }
 

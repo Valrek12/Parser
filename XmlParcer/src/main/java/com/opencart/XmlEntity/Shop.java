@@ -1,4 +1,4 @@
-package com.opencard.XmlEntity;
+package com.opencart.XmlEntity;
 
 import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.Document;
