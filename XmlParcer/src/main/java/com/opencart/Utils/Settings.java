@@ -28,10 +28,6 @@ public class Settings {
         return server;
     }
 
-    public String getBaseName() throws IOException {
-        String baseName = ReadProperties().getProperty("database");
-        return baseName;
-    }
 
     public String getLogin() throws IOException {
         String login = ReadProperties().getProperty("login");

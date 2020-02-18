@@ -62,7 +62,7 @@ public class XmlCategories {
             }
         }
         for (XmlCategories categories : categories){
-            logger.debug(String.format(" id - %s, parentId - %s, name - %s", categories.getId(), categories.getParentId(), categories.getName()));
+            logger.info(String.format(" id - %s, parentId - %s, name - %s", categories.getId(), categories.getParentId(), categories.getName()));
         }
             logger.debug("Парсинг категорий прошел успешно");
         return categories;

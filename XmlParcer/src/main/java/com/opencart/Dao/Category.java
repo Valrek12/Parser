@@ -27,12 +27,12 @@ public class Category extends Model {
         return getInteger("parent_id");
     }
 
-    public void setColumn(int column){
+    public void setColumn(short column){
         set("column", column);
     }
 
-    public int getColumn(){
-        return getInteger("column");
+    public short getColumn(){
+        return getShort("column");
     }
 
     public void setDateAdded(Date date){
@@ -67,7 +67,7 @@ public class Category extends Model {
         return getBoolean("sort_order");
     }
 
-    public void setStatus(int status){
+    public void setStatus(boolean status){
         set("status", status);
     }
 
