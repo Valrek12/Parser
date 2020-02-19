@@ -1,6 +1,5 @@
 package com.opencart.Mapping;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opencart.Dao.Category;
 import com.opencart.Dao.CategoryDescription;
 import com.opencart.Dao.CategoryTemp;
@@ -23,7 +22,6 @@ public class Mapping {
     private XmlUtils xmlUtils;
     private DateFormat dateFormat;
     private static final Logger logger = LogManager.getLogger();
-    private ObjectMapper mapper = new ObjectMapper();
 
     public Mapping() throws IOException {
         this.xmlUtils = new XmlUtils();
