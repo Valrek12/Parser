@@ -27,14 +27,6 @@ public class Category extends Model {
         return getInteger("parent_id");
     }
 
-    public void setColumn(short column){
-        set("column", column);
-    }
-
-    public short getColumn(){
-        return getShort("column");
-    }
-
     public void setDateAdded(Date date){
         set("date_added", date);
     }

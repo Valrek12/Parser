@@ -36,6 +36,7 @@ public class StartLoader {
       Category.deleteAll();
       mapping.CategoryMapping();
       mapping.UpdateDescription();
+      mapping.OfferMapping();
       connector.ConnectionClose();
       xmlUtils.DeleteXml();
       logger.debug(String.format("файл с именем -%s успешно удален", xmlUtils.nameFile));

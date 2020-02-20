@@ -1,14 +1,14 @@
 package com.opencart.Mapping;
 
-import com.opencart.Dao.Category;
-import com.opencart.Dao.CategoryDescription;
-import com.opencart.Dao.CategoryTemp;
+import com.opencart.Dao.*;
 import com.opencart.Utils.XmlUtils;
 import com.opencart.XmlEntity.XmlCategories;
+import com.opencart.XmlEntity.XmlOffer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.javalite.activejdbc.LazyList;
 import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -53,6 +53,82 @@ public class Mapping {
             logger.info(String.format("Добавлена запись в таблицу oc3_category c category_id - %s", xmlCategory.getId()));
         }
         logger.info("Данные успешно загружены в таблицу oc3_category ");
+    }
+
+    public void OfferMapping() throws IOException{
+        ArrayList<XmlOffer> xmlOffers = null;
+        try {
+            xmlOffers = XmlOffer.getOffers(xmlUtils);
+        } catch (ParserConfigurationException e) {
+            logger.error(String.format("Возникла ошибка при парсинге конфигурации, подробности - %s ", e.getMessage()));
+        } catch (SAXException e) {
+            logger.error(String.format("Возникла ошибка при парсинге XML, подробности - %s ", e.getMessage()));
+        }
+        for(XmlOffer xmlOffer: xmlOffers){
+            if(Products.where("sku =?", xmlOffer.getId()).size() != 0){
+                Products.update("price = ?, image = ?, date_modified = ?","sku =?", xmlOffer.getPrice(), xmlOffer.getPicture(), new java.sql.Date(Instant.now().toEpochMilli()),  xmlOffer.getId());
+                logger.debug(String.format("Обновлен продукт с scu - %s", xmlOffer.getId()));
+            }else{
+                Products product = new Products();
+                insertProduct(product, xmlOffer);
+            }
+            insertOrUpdateOfferDescription(xmlOffer);
+        }
+    }
+
+    private static void insertOrUpdateOfferDescription(@NotNull XmlOffer xmlOffer){
+        Products products = Products.findFirst("sku = ?", xmlOffer.getId());
+        int id = (int) products.get("product_id");
+        if(products.get("product_id") != null){
+            OfferDescription.update("name = ?, description = ?", "product_id= ?", xmlOffer.getName(), xmlOffer.getDescription(), id);
+            logger.debug(String.format("oc3_product_description: обновлена запись с id - %s ", id));
+        }else {
+            OfferDescription offerDescription = new OfferDescription();
+            offerDescription.setLanguage(1);
+            offerDescription.setName(xmlOffer.getName());
+            offerDescription.setMetaDescription("");
+            offerDescription.setMetaTitle("");
+            offerDescription.setMetKeyword("");
+            offerDescription.setDescription(xmlOffer.getDescription());
+            offerDescription.save();
+            logger.debug(String.format("oc3_product_description: добавлена запись с id - %s ", id));
+        }
+    }
+
+    private static void insertProduct(@NotNull Products product, @NotNull XmlOffer xmlOffer){
+        product.setModel(String.valueOf(xmlOffer.getId()));
+        product.setSku(String.valueOf(xmlOffer.getId()));
+        product.setPrice((double) xmlOffer.getPrice());
+        product.setDateAdded(new java.sql.Date(Instant.now().toEpochMilli()));
+        product.setDateModified(new java.sql.Date(Instant.now().toEpochMilli()));
+        product.setCost(0);
+        product.setLocation("");
+        product.setImage(xmlOffer.getPicture());
+        product.setEan("");
+        product.setIsbn("");
+        product.setJan("");
+        product.setMpn("");
+        product.setIsbn("");
+        product.setQuantity(8);
+        product.setStockId(5);
+        product.setManufacturerId(getManufactureId(xmlOffer.getVendor()));
+        product.setTaxClassId(0);
+        product.setSupplerCode(1);
+        product.setSupplerType(0);
+        product.setUpc("");
+        product.setPopupsize(0);
+        product.setStickers(0);
+        product.save();
+        logger.debug(String.format("oc3_product: добавлена запись с id - %s ", xmlOffer.getId()));
+    }
+
+
+    private static int getManufactureId(String name){
+        if(Manufacture.where("name = ?", name).size() != 0){
+            Manufacture manufacture = Manufacture.findFirst("name = ?", name);
+            return manufacture.getInteger("manufacturer_id");
+        }
+            return 0;
     }
 
     public void DumpTable(){

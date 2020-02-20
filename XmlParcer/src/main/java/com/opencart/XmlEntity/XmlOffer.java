@@ -28,16 +28,16 @@ public class XmlOffer {
     private String vendor;
     private String vendorCode;
     private String description;
-    private int price;
+    private Double price;
     private static ArrayList<XmlOffer> offers = new ArrayList<XmlOffer>();
     private static final Logger logger = LogManager.getLogger();
 
 
-    public int getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -162,7 +162,7 @@ public class XmlOffer {
             offer.setAvailable(Boolean.parseBoolean(attributes.getNamedItem("available").getNodeValue()));
             getOfferEntity(eElement, offer);
             offers.add(offer);
-            logger.info("Offer с Id - %s распарсен успешно", attributes.getNamedItem("id").getNodeValue());
+            logger.info(String.format("Offer c id -  %s распарсен успешно ", attributes.getNamedItem("id").getNodeValue()));
         }
         return offers;
     }
@@ -177,23 +177,27 @@ public class XmlOffer {
             offer.setDelivery(getTagValue("delivery", element));
             offer.setDescription(getTagValue("description", element));
             offer.setVendorCode(getTagValue("vendorCode", element));
-            offer.setVendor(getTagValue("vendor",element));
+            offer.setVendor(getTagValue("vendor", element));
             offer.setPicture(getTagValue("picture",element));
-            offer.setPrice(Integer.parseInt(getTagValue("price", element)));
+            offer.setPrice((Double.valueOf(getTagValue("price", element))));
             for(int i =0; i < element.getElementsByTagName("categoryId").getLength(); i++){
                     Element nodes = (Element) element.getElementsByTagName("categoryId").item(i);
                     int categoryId = Integer.parseInt(nodes.getFirstChild().getNodeValue());
                     ints.add(categoryId);
             }
             offer.setCategories(ints);
-            System.out.println(getTagValue("name", element));
         }
         return offer;
     }
 
     private static String getTagValue(String tag, @NotNull Element element) {
-        NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
-        Node node = (Node) nodeList.item(0);
-        return node.getNodeValue();
+        if(element.getElementsByTagName(tag).getLength() > 0){
+            NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
+            Node node = (Node) nodeList.item(0);
+            return node.getNodeValue();
+        }else{
+            return "";
+        }
+
     }
 }
