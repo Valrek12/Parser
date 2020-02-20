@@ -79,7 +79,7 @@ public class Mapping {
     private static void insertOrUpdateOfferDescription(@NotNull XmlOffer xmlOffer){
         Products products = Products.findFirst("sku = ?", xmlOffer.getId());
         int id = (int) products.get("product_id");
-        if(products.get("product_id") != null){
+        if(Products.where("product_id = ?", id).size() != 0){
             OfferDescription.update("name = ?, description = ?", "product_id= ?", xmlOffer.getName(), xmlOffer.getDescription(), id);
             logger.debug(String.format("oc3_product_description: обновлена запись с id - %s ", id));
         }else {
