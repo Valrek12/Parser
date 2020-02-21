@@ -9,12 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # This step checks out a copy of your repository.
-      - uses: master
-      # This step references the directory that contains the action.
-      - uses: ./.github/Parcer/XmlParcer
-    
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - name:  Setup Java JDK
         uses: actions/setup-java@v1.3.0
         with:
