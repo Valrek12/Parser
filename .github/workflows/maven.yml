@@ -9,7 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - name: Use local my-action  
+        uses: ./.github/Parcer/XmlParcer 
       - name:  Setup Java JDK
       - uses: actions/setup-java@v1.3.0
         with:
