@@ -6,23 +6,22 @@ on:
       - master
 
 jobs:
-  my_job:
-    name: deploy to staging
-    runs-on: ubuntu-18.04
-    
-    
+  build:
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name:  Setup Java JDK
-      uses: actions/setup-java@v1.3.0
-      with:
-        java-version: 1.8
-        java-package: jdk
-    - name: Manven install
-      run: mvn install
-       
-    - name: Build with Maven
-      run: mvn -B package -f pom.xml
+      # This step checks out a copy of your repository.
+      - uses: master
+      # This step references the directory that contains the action.
+      - uses: ./.github/Parcer/XmlParcer
+    
+      - uses: actions/checkout@v2
+      - name:  Setup Java JDK
+        uses: actions/setup-java@v1.3.0
+        with:
+          java-version: 1.8
+          java-package: jdk
+      - name: Build with Maven
+        run: mvn -B package -f pom.xml
 
  
      
