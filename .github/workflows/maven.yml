@@ -18,6 +18,9 @@ jobs:
       with:
         java-version: 1.8
         java-package: jdk
+    - name: Manven install
+      run: mvn install
+       
     - name: Build with Maven
       run: mvn package  --file pom.xml
 
