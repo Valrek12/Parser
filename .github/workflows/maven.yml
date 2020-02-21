@@ -17,7 +17,7 @@ jobs:
       uses: actions/setup-java@v1.3.0
       with:
         java-version: 1.8
-        java-package: optional, default is jdk  
+        java-package: jdk  
         
     - name: action-maven
       uses: comchangs/action-maven@v0.4-beta 
