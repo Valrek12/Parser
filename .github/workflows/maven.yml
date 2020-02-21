@@ -17,9 +17,9 @@ jobs:
       uses: actions/setup-java@v1.3.0
       with:
         java-version: 1.8
-        java-package: jdk  
+        java-package: jdk
     - name: Build with Maven
-      run: mvn package -f Parcer/XmlParcer/pom.xml
+      run: mvn package  --file pom.xml
 
  
      
