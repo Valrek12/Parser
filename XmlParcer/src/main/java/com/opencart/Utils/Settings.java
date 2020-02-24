@@ -48,4 +48,9 @@ public class Settings {
         String driver = ReadProperties().getProperty("driver");
         return driver;
     }
+
+    public String getSourcePath() throws IOException {
+        String path = ReadProperties().getProperty("imagePath");
+        return path;
+    }
 }

@@ -11,6 +11,13 @@ public class Products extends Model {
     public Products(){
 
     }
+    public void setProductId(int id){
+        set("product_id", id);
+    }
+    public int getProductId(){
+        return getInteger("product_id");
+    }
+
     public void setModel(String id){
         set("model", id);
     }

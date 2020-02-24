@@ -1,6 +1,7 @@
 package com.opencart.Mapping;
 
 import com.opencart.Dao.*;
+import com.opencart.Utils.ImageController;
 import com.opencart.Utils.XmlUtils;
 import com.opencart.XmlEntity.XmlCategories;
 import com.opencart.XmlEntity.XmlOffer;
@@ -66,13 +67,27 @@ public class Mapping {
         }
         for(XmlOffer xmlOffer: xmlOffers){
             if(Products.where("sku =?", xmlOffer.getId()).size() != 0){
-                Products.update("price = ?, image = ?, date_modified = ?","sku =?", xmlOffer.getPrice(), xmlOffer.getPicture(), new java.sql.Date(Instant.now().toEpochMilli()),  xmlOffer.getId());
+                ImageController imageController = new ImageController();
+                String uriImage = imageController.Download(xmlOffer.getPicture());
+                Products.update("price = ?, image = ?, date_modified = ?","sku =?", xmlOffer.getPrice(), uriImage, new java.sql.Date(Instant.now().toEpochMilli()),  xmlOffer.getId());
                 logger.debug(String.format("Обновлен продукт с scu - %s", xmlOffer.getId()));
             }else{
                 Products product = new Products();
-                insertProduct(product, xmlOffer);
+                int productId = insertProduct(product, xmlOffer);
+                InsertProductToCategory(xmlOffer, productId);
             }
             insertOrUpdateOfferDescription(xmlOffer);
+
+        }
+    }
+
+    private static void InsertProductToCategory(@NotNull XmlOffer xmlOffer, int productId){
+        ProductToCategory productToCategory = new ProductToCategory();
+        for(Integer categoryId: xmlOffer.getCategories()){
+            productToCategory.setProductId(productId);
+            productToCategory.setCategoryId(categoryId);
+            productToCategory.save();
+            logger.info(String.format("Выполнен маппинг категории и продукта с id - %s", productId));
         }
     }
 
@@ -95,7 +110,8 @@ public class Mapping {
         }
     }
 
-    private static void insertProduct(@NotNull Products product, @NotNull XmlOffer xmlOffer){
+    private static int insertProduct(@NotNull Products product, @NotNull XmlOffer xmlOffer) throws IOException {
+        ImageController controller = new ImageController();
         product.setModel(String.valueOf(xmlOffer.getId()));
         product.setSku(String.valueOf(xmlOffer.getId()));
         product.setPrice((double) xmlOffer.getPrice());
@@ -103,7 +119,7 @@ public class Mapping {
         product.setDateModified(new java.sql.Date(Instant.now().toEpochMilli()));
         product.setCost(0);
         product.setLocation("");
-        product.setImage(xmlOffer.getPicture());
+        product.setImage(controller.Download(xmlOffer.getPicture()));
         product.setEan("");
         product.setIsbn("");
         product.setJan("");
@@ -120,6 +136,7 @@ public class Mapping {
         product.setStickers(0);
         product.save();
         logger.debug(String.format("oc3_product: добавлена запись с id - %s ", xmlOffer.getId()));
+        return product.getProductId();
     }
 
 
@@ -127,8 +144,9 @@ public class Mapping {
         if(Manufacture.where("name = ?", name).size() != 0){
             Manufacture manufacture = Manufacture.findFirst("name = ?", name);
             return manufacture.getInteger("manufacturer_id");
-        }
+        }else{
             return 0;
+        }
     }
 
     public void DumpTable(){
