@@ -52,9 +52,34 @@ public class Mapping {
             category.setStatus(true);
             category.save();
             logger.info(String.format("Добавлена запись в таблицу oc3_category c category_id - %s", xmlCategory.getId()));
+            UpdateLayout(xmlCategory);
+            logger.info(String.format("Добавлена запись в таблицу oc3_category_to_layout с id -%s", xmlCategory.getId()));
+            UpdateToStore(xmlCategory);
+            logger.info(String.format("Добавлена запись в таблицу oc3_category_to_store с id -%s", xmlCategory.getId()));
         }
         logger.info("Данные успешно загружены в таблицу oc3_category ");
+
     }
+
+    public void UpdateToStore(@NotNull XmlCategories xmlCategories){
+        if(CategoryToStore.where("category_id = ?", xmlCategories.getId()).size() == 0){
+            CategoryToStore categoryToStore = new CategoryToStore();
+            categoryToStore.setCategoryId(xmlCategories.getId());
+            categoryToStore.setStoreId(0);
+            categoryToStore.save();
+        }
+    }
+
+    public void UpdateLayout(@NotNull XmlCategories xmlCategory){
+        if(CategoryToLayout.where("category_id = ?", xmlCategory.getId()).size() == 0) {
+            CategoryToLayout toLayout = new CategoryToLayout();
+            toLayout.setCategoryId(xmlCategory.getId());
+            toLayout.setLayout_id(0);
+            toLayout.setStoreId(0);
+            toLayout.save();
+        }
+    }
+
 
     public void OfferMapping() throws IOException{
         ArrayList<XmlOffer> xmlOffers = null;
@@ -82,11 +107,11 @@ public class Mapping {
     }
 
     private static void InsertProductToCategory(@NotNull XmlOffer xmlOffer, int productId){
-        ProductToCategory productToCategory = new ProductToCategory();
-        for(Integer categoryId: xmlOffer.getCategories()){
-            productToCategory.setProductId(productId);
+        for(int categoryId: xmlOffer.getCategories()){
+            ProductToCategory productToCategory = new ProductToCategory();
             productToCategory.setCategoryId(categoryId);
-            productToCategory.save();
+            productToCategory.setProductId(productId);
+            productToCategory.saveIt();
             logger.info(String.format("Выполнен маппинг категории и продукта с id - %s", productId));
         }
     }
@@ -136,9 +161,10 @@ public class Mapping {
         product.setStickers(0);
         product.save();
         logger.debug(String.format("oc3_product: добавлена запись с id - %s ", xmlOffer.getId()));
-        return product.getProductId();
+        Products products = Products.findFirst("sku = ?", xmlOffer.getId());
+        int id = (int) products.get("product_id");
+        return id;
     }
-
 
     private static int getManufactureId(String name){
         if(Manufacture.where("name = ?", name).size() != 0){
@@ -161,11 +187,13 @@ public class Mapping {
             categoryTemp.setSortOrder(model.getSortOrder());
             categoryTemp.setStatus(model.getStatus());
             categoryTemp.setStickers(model.getStickers());
+            categoryTemp.setTop(model.getTop());
             categoryTemp.save();
             logger.info(String.format("Добавлена запись в таблицу oc3_category_temp c category_id - %s", model.getCategoryId()));
         }
         logger.info("Данные успешно выгружены в таблицу oc3_category_temp");
     }
+
 
     public void UpdateDescription(){
         ArrayList<XmlCategories> xmlCategories = null;
@@ -185,6 +213,11 @@ public class Mapping {
                 description.setCategoryId(xmlCategory.getId());
                 description.setName(xmlCategory.getName());
                 description.setLanguage(1);
+                description.setDescription("Сгенерировано пасером");
+                description.setMetaDescription("Сгенерировано пасером");
+                description.setMetaTitle(xmlCategory.getName());
+                description.setMetaKeyword("");
+                description.save();
                 logger.info(String.format("Добавлена запись в таблицу oc3_category_description c category_id - %s", xmlCategory.getId()));
             }
 

@@ -2,6 +2,7 @@ package com.opencart.Utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 /**
@@ -13,8 +14,8 @@ public class Settings {
     Properties prop = new Properties();
 
     public Properties ReadProperties() throws IOException {
-        fileInputStream = new FileInputStream(PATH_TO_PROPERTIES);
-        prop.load(fileInputStream);
+        InputStream inputStream = getClass().getResourceAsStream("/application.properties");
+        prop.load(inputStream);
         return prop;
     }
 

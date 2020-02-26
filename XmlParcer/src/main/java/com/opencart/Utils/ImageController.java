@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -27,11 +26,9 @@ public class ImageController {
         logger.debug(String.format("Выгружаем картинку по адресу: %s", newUri));
         InputStream in = new URL(newUri).openStream();
         String nameImage = ConvertToName(uri);
-        File file = new File(settings.getSourcePath());
-        Files.copy(in, Paths.get(file.getCanonicalPath() + "//" + nameImage), StandardCopyOption.REPLACE_EXISTING);
-        File image = new File(nameImage);
-        logger.debug(String.format("Картинка успешно сохранена по пути: - %s", image.getAbsoluteFile()));
-        return image.getCanonicalPath();
+        Files.copy(in, Paths.get(settings.getSourcePath() + "//" + nameImage), StandardCopyOption.REPLACE_EXISTING);
+        logger.debug(String.format("Картинка успешно сохранена по пути: - %s", settings.getSourcePath() + "/" + nameImage));
+        return settings.getSourcePath() + "/" + nameImage;
     }
 
     @NotNull
