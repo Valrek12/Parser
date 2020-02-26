@@ -95,13 +95,14 @@ public class Mapping {
                 ImageController imageController = new ImageController();
                 String uriImage = imageController.Download(xmlOffer.getPicture());
                 Products.update("price = ?, image = ?, date_modified = ?","sku =?", xmlOffer.getPrice(), uriImage, new java.sql.Date(Instant.now().toEpochMilli()),  xmlOffer.getId());
+                insertOrUpdateOfferDescription(xmlOffer);
                 logger.debug(String.format("Обновлен продукт с scu - %s", xmlOffer.getId()));
             }else{
                 Products product = new Products();
                 int productId = insertProduct(product, xmlOffer);
                 InsertProductToCategory(xmlOffer, productId);
+                insertOrUpdateOfferDescription(xmlOffer);
             }
-            insertOrUpdateOfferDescription(xmlOffer);
 
         }
     }
@@ -117,17 +118,17 @@ public class Mapping {
     }
 
     private static void insertOrUpdateOfferDescription(@NotNull XmlOffer xmlOffer){
-        Products products = Products.findFirst("sku = ?", xmlOffer.getId());
+        OfferDescription products = Products.findFirst("sku = ?", xmlOffer.getId());
         int id = (int) products.get("product_id");
-        if(Products.where("product_id = ?", id).size() != 0){
+        if(OfferDescription.where("product_id = ?", id).size() != 0){
             OfferDescription.update("name = ?, description = ?", "product_id= ?", xmlOffer.getName(), xmlOffer.getDescription(), id);
             logger.debug(String.format("oc3_product_description: обновлена запись с id - %s ", id));
         }else {
             OfferDescription offerDescription = new OfferDescription();
             offerDescription.setLanguage(1);
             offerDescription.setName(xmlOffer.getName());
-            offerDescription.setMetaDescription("");
-            offerDescription.setMetaTitle("");
+            offerDescription.setMetaDescription(xmlOffer.getDescription());
+            offerDescription.setMetaTitle(xmlOffer.getName());
             offerDescription.setMetKeyword("");
             offerDescription.setDescription(xmlOffer.getDescription());
             offerDescription.save();

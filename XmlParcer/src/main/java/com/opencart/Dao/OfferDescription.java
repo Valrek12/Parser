@@ -6,9 +6,6 @@ import org.javalite.activejdbc.annotations.Table;
 @Table("oc3_product_description")
 public class OfferDescription extends Model {
 
-    public OfferDescription(){
-    }
-
     public void setProductId(int id){
         set("product_id", id);
     }
