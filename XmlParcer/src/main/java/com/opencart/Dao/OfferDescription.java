@@ -50,9 +50,6 @@ public class OfferDescription extends Model {
         set("meta_description", metaDescription);
     }
 
-    public String getMetKeyword(){
-        return getString("meta_keyword");
-    }
 
     public void setDescription(String description){
         set("description", description);
@@ -62,7 +59,12 @@ public class OfferDescription extends Model {
     }
 
     public void setMetKeyword(String MetKeyword){
-        set("description", MetKeyword);
+        set("meta_keyword", MetKeyword);
     }
+
+    public String getMetKeyword(){
+        return getString("meta_keyword");
+    }
+
 
 }

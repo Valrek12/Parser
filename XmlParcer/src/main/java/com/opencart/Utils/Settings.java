@@ -54,4 +54,9 @@ public class Settings {
         String path = ReadProperties().getProperty("imagePath");
         return path;
     }
+
+    public String getCanonicalPath() throws  IOException{
+        String path = ReadProperties().getProperty("imageCanonicalPath");
+        return path;
+    }
 }

@@ -26,9 +26,9 @@ public class ImageController {
         logger.debug(String.format("Выгружаем картинку по адресу: %s", newUri));
         InputStream in = new URL(newUri).openStream();
         String nameImage = ConvertToName(uri);
-        Files.copy(in, Paths.get(settings.getSourcePath() + "//" + nameImage), StandardCopyOption.REPLACE_EXISTING);
-        logger.debug(String.format("Картинка успешно сохранена по пути: - %s", settings.getSourcePath() + "/" + nameImage));
-        return settings.getSourcePath() + "/" + nameImage;
+        Files.copy(in, Paths.get(settings.getCanonicalPath() + "/" + nameImage + ".jpg"), StandardCopyOption.REPLACE_EXISTING);
+        logger.debug(String.format("Картинка успешно сохранена по пути: - %s", settings.getSourcePath() + "/" + nameImage + ".jpg"));
+        return settings.getSourcePath() + "/" + nameImage + ".jpg";
     }
 
     @NotNull

@@ -172,4 +172,12 @@ public class Products extends Model {
 
     public int getPopupsize(){return getInteger("popupsize");}
 
+    public void setStatus(boolean status){
+        set("status", status);
+    }
+
+    public boolean getStatus(){
+        return getBoolean("status");
+    }
+
 }

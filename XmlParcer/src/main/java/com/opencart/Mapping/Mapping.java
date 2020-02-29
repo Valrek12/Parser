@@ -54,14 +54,25 @@ public class Mapping {
             logger.info(String.format("Добавлена запись в таблицу oc3_category c category_id - %s", xmlCategory.getId()));
             UpdateLayout(xmlCategory);
             logger.info(String.format("Добавлена запись в таблицу oc3_category_to_layout с id -%s", xmlCategory.getId()));
-            UpdateToStore(xmlCategory);
+            UpdateToStoreCategory(xmlCategory);
             logger.info(String.format("Добавлена запись в таблицу oc3_category_to_store с id -%s", xmlCategory.getId()));
         }
         logger.info("Данные успешно загружены в таблицу oc3_category ");
 
     }
 
-    public void UpdateToStore(@NotNull XmlCategories xmlCategories){
+    private void UpdateToStoreProduct(@NotNull XmlOffer xmlOffer){
+        Products products = Products.findFirst("sku = ?", xmlOffer.getId());
+        int id = (int) products.get("product_id");
+        if(ProductToStore.where("product_id = ?", id).size()==0){
+            ProductToStore productToStore = new ProductToStore();
+            productToStore.setProductId(id);
+            productToStore.setStoreId(0);
+            productToStore.save();
+        }
+    }
+
+    private void UpdateToStoreCategory(@NotNull XmlCategories xmlCategories){
         if(CategoryToStore.where("category_id = ?", xmlCategories.getId()).size() == 0){
             CategoryToStore categoryToStore = new CategoryToStore();
             categoryToStore.setCategoryId(xmlCategories.getId());
@@ -70,7 +81,7 @@ public class Mapping {
         }
     }
 
-    public void UpdateLayout(@NotNull XmlCategories xmlCategory){
+    private void UpdateLayout(@NotNull XmlCategories xmlCategory){
         if(CategoryToLayout.where("category_id = ?", xmlCategory.getId()).size() == 0) {
             CategoryToLayout toLayout = new CategoryToLayout();
             toLayout.setCategoryId(xmlCategory.getId());
@@ -96,12 +107,14 @@ public class Mapping {
                 String uriImage = imageController.Download(xmlOffer.getPicture());
                 Products.update("price = ?, image = ?, date_modified = ?","sku =?", xmlOffer.getPrice(), uriImage, new java.sql.Date(Instant.now().toEpochMilli()),  xmlOffer.getId());
                 insertOrUpdateOfferDescription(xmlOffer);
+                UpdateToStoreProduct(xmlOffer);
                 logger.debug(String.format("Обновлен продукт с scu - %s", xmlOffer.getId()));
             }else{
                 Products product = new Products();
                 int productId = insertProduct(product, xmlOffer);
                 InsertProductToCategory(xmlOffer, productId);
                 insertOrUpdateOfferDescription(xmlOffer);
+                UpdateToStoreProduct(xmlOffer);
             }
 
         }
@@ -118,19 +131,21 @@ public class Mapping {
     }
 
     private static void insertOrUpdateOfferDescription(@NotNull XmlOffer xmlOffer){
-        OfferDescription products = Products.findFirst("sku = ?", xmlOffer.getId());
+        Products products = Products.findFirst("sku = ?", xmlOffer.getId());
         int id = (int) products.get("product_id");
         if(OfferDescription.where("product_id = ?", id).size() != 0){
-            OfferDescription.update("name = ?, description = ?", "product_id= ?", xmlOffer.getName(), xmlOffer.getDescription(), id);
+            OfferDescription.update("name = ?, description = ?", "product_id= ?", xmlOffer.getName(), "", id);
             logger.debug(String.format("oc3_product_description: обновлена запись с id - %s ", id));
         }else {
             OfferDescription offerDescription = new OfferDescription();
+            offerDescription.setProductId(id);
             offerDescription.setLanguage(1);
             offerDescription.setName(xmlOffer.getName());
-            offerDescription.setMetaDescription(xmlOffer.getDescription());
+            offerDescription.setMetaDescription("");
             offerDescription.setMetaTitle(xmlOffer.getName());
             offerDescription.setMetKeyword("");
-            offerDescription.setDescription(xmlOffer.getDescription());
+            offerDescription.setDescription("");
+            offerDescription.setTag("Тег товара");
             offerDescription.save();
             logger.debug(String.format("oc3_product_description: добавлена запись с id - %s ", id));
         }
@@ -160,6 +175,7 @@ public class Mapping {
         product.setUpc("");
         product.setPopupsize(0);
         product.setStickers(0);
+        product.setStatus(true);
         product.save();
         logger.debug(String.format("oc3_product: добавлена запись с id - %s ", xmlOffer.getId()));
         Products products = Products.findFirst("sku = ?", xmlOffer.getId());
