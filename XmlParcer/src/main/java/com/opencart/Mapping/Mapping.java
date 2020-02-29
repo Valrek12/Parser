@@ -29,6 +29,10 @@ public class Mapping {
         this.dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     }
 
+    /**
+     * Метод опиывает логику загрузки распарсенных категорий по таблицам в бд.
+     * @throws IOException
+     */
     @Contract(pure = true)
     public void CategoryMapping() throws IOException{
         ArrayList<XmlCategories> xmlCategories = null;
@@ -52,7 +56,7 @@ public class Mapping {
             category.setStatus(true);
             category.save();
             logger.info(String.format("Добавлена запись в таблицу oc3_category c category_id - %s", xmlCategory.getId()));
-            UpdateLayout(xmlCategory);
+            UpdateCategoryLayout(xmlCategory);
             logger.info(String.format("Добавлена запись в таблицу oc3_category_to_layout с id -%s", xmlCategory.getId()));
             UpdateToStoreCategory(xmlCategory);
             logger.info(String.format("Добавлена запись в таблицу oc3_category_to_store с id -%s", xmlCategory.getId()));
@@ -61,6 +65,10 @@ public class Mapping {
 
     }
 
+    /**
+     * Метод обновления store у продукта
+     * @param xmlOffer
+     */
     private void UpdateToStoreProduct(@NotNull XmlOffer xmlOffer){
         Products products = Products.findFirst("sku = ?", xmlOffer.getId());
         int id = (int) products.get("product_id");
@@ -72,6 +80,10 @@ public class Mapping {
         }
     }
 
+    /**
+     * Метод обновления store у категорий
+     * @param xmlCategories
+     */
     private void UpdateToStoreCategory(@NotNull XmlCategories xmlCategories){
         if(CategoryToStore.where("category_id = ?", xmlCategories.getId()).size() == 0){
             CategoryToStore categoryToStore = new CategoryToStore();
@@ -81,7 +93,11 @@ public class Mapping {
         }
     }
 
-    private void UpdateLayout(@NotNull XmlCategories xmlCategory){
+    /**
+     * Метод обновления Layout у категорий
+     * @param xmlCategory - объект класса, работающий с распасренными категориями
+     */
+    private void UpdateCategoryLayout(@NotNull XmlCategories xmlCategory){
         if(CategoryToLayout.where("category_id = ?", xmlCategory.getId()).size() == 0) {
             CategoryToLayout toLayout = new CategoryToLayout();
             toLayout.setCategoryId(xmlCategory.getId());
@@ -91,7 +107,10 @@ public class Mapping {
         }
     }
 
-
+    /**
+     * Метод опиывает логику загрузки распарсенных продуктов по таблицам в бд.
+     * @throws IOException
+     */
     public void OfferMapping() throws IOException{
         ArrayList<XmlOffer> xmlOffers = null;
         try {
@@ -120,6 +139,11 @@ public class Mapping {
         }
     }
 
+    /**
+     * Метод  добавляет данные в таблицу Product_to_category
+     * @param xmlOffer - объект класса, работающий с распарсенными продуктами
+     * @param productId
+     */
     private static void InsertProductToCategory(@NotNull XmlOffer xmlOffer, int productId){
         for(int categoryId: xmlOffer.getCategories()){
             ProductToCategory productToCategory = new ProductToCategory();
@@ -130,6 +154,10 @@ public class Mapping {
         }
     }
 
+    /**
+     * Метод добаляет или обновляет описание подукта
+     * @param xmlOffer - объект класса распарсенной Xml
+     */
     private static void insertOrUpdateOfferDescription(@NotNull XmlOffer xmlOffer){
         Products products = Products.findFirst("sku = ?", xmlOffer.getId());
         int id = (int) products.get("product_id");
@@ -151,6 +179,14 @@ public class Mapping {
         }
     }
 
+
+    /**
+     * Метод добавления продукта в бд opencart
+     * @param  product - объект описывающий работу с таблицей product
+     * @param xmlOffer - объект класса распарсенной Xml
+     * @return id
+     * @throws IOException
+     */
     private static int insertProduct(@NotNull Products product, @NotNull XmlOffer xmlOffer) throws IOException {
         ImageController controller = new ImageController();
         product.setModel(String.valueOf(xmlOffer.getId()));
@@ -192,7 +228,11 @@ public class Mapping {
         }
     }
 
-    public void DumpTable(){
+    /**
+     * Метод создает дамп таблицы категорий
+     * TO DO: Вынести в этот класc, сделать метод private
+     */
+    public void DumpTableCategory(){
         LazyList<Category> categoryArrayList = Category.findAll();
         for(Category model: categoryArrayList){
             CategoryTemp categoryTemp = new CategoryTemp();
@@ -211,8 +251,11 @@ public class Mapping {
         logger.info("Данные успешно выгружены в таблицу oc3_category_temp");
     }
 
-
-    public void UpdateDescription(){
+    /**
+     * Метод обновляет описание у категорий
+     * TO DO: Вынести в этот класc, сделать метод private
+     */
+    public void UpdateDescriptionCategory(){
         ArrayList<XmlCategories> xmlCategories = null;
         try {
             xmlCategories = XmlCategories.getCategories(xmlUtils);

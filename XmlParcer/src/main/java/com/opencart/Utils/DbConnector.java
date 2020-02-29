@@ -17,6 +17,10 @@ public class DbConnector {
         this.settings = new Settings();
     }
 
+    /**
+     * Метод устанавливает подключение с бд
+     * @throws IOException
+     */
     public void ConnectionOpen() throws IOException {
         try{
             Base.open(settings.getDriver(), settings.getServer(), settings.getLogin(),settings.getPassword());

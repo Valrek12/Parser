@@ -35,7 +35,7 @@ public class StartLoader {
       logger.debug(String.format("файл с именем -%s успешно выгружен", xmlUtils.nameFile));
       Category.deleteAll();
       mapping.CategoryMapping();
-      mapping.UpdateDescription();
+      mapping.UpdateDescriptionCategory();
       mapping.OfferMapping();
       connector.ConnectionClose();
       xmlUtils.DeleteXml();
@@ -46,7 +46,7 @@ public class StartLoader {
       if(CategoryTemp.findAll()!= null){
           CategoryTemp.deleteAll();
           Mapping mapping = new Mapping();
-          mapping.DumpTable();
+          mapping.DumpTableCategory();
       }
   }
 }

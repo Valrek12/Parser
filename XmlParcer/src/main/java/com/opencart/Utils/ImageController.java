@@ -21,6 +21,12 @@ public class ImageController {
         this.settings = new Settings();
     }
 
+    /**
+     * Метод загрузки картинок
+     * @param uri адресс с которого нужно грузить картинку
+     * @return
+     * @throws IOException
+     */
     public String Download(@NotNull String uri) throws IOException {
         String newUri = uri.replace("http", "https");
         logger.debug(String.format("Выгружаем картинку по адресу: %s", newUri));
@@ -31,6 +37,11 @@ public class ImageController {
         return settings.getSourcePath() + "/" + nameImage + ".jpg";
     }
 
+    /**
+     * Вспомогательный метод, преобразует строку в нужный формат, убирает в пути - '/'
+     * @param uri
+     * @return
+     */
     @NotNull
     private String ConvertToName(@NotNull String uri){
        String name = uri.replace("http://ilgc-", "").replace('/', '-').replace('.', '-');

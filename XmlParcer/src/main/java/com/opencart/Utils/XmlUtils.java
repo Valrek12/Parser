@@ -22,6 +22,12 @@ public class XmlUtils {
     public String xmlFIle;
     public String nameFile;
 
+    /**
+     * Метод скачиваеь файл, по указанному пути в application.properties
+     * @paдram xmlFIle
+     * @return
+     * @throws IOException
+     */
     public File DownloadXml(String xmlFIle) throws  IOException {
         InputStream in = new URL(xmlFIle).openStream();
         Files.copy(in, Paths.get(nameFile));
@@ -35,6 +41,13 @@ public class XmlUtils {
         nameFile = settings.getNameFile();
     }
 
+    /**
+     * Метод получения, скаченного Xml
+     * @return
+     * @throws IOException
+     * @throws SAXException
+     * @throws ParserConfigurationException
+     */
     public Document getDocument() throws IOException, SAXException, ParserConfigurationException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         // Получили из фабрики билдер, который парсит XML, создает структуру Document в виде иерархического дерева.
@@ -54,6 +67,9 @@ public class XmlUtils {
         return  document;
     }
 
+    /**
+     * Метод удаления скаченного файла
+     */
     public void DeleteXml(){
       new File(nameFile).delete();
     }
