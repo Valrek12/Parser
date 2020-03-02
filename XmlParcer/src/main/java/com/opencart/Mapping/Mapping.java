@@ -162,7 +162,7 @@ public class Mapping {
         Products products = Products.findFirst("sku = ?", xmlOffer.getId());
         int id = (int) products.get("product_id");
         if(OfferDescription.where("product_id = ?", id).size() != 0){
-            OfferDescription.update("name = ?, description = ?", "product_id= ?", xmlOffer.getName(), "", id);
+            OfferDescription.update("name = ?, description = ?", "tag = ?", "product_id= ?", xmlOffer.getName(), "", xmlOffer.getVendor() + GetCategoryName(xmlOffer), id);
             logger.debug(String.format("oc3_product_description: обновлена запись с id - %s ", id));
         }else {
             OfferDescription offerDescription = new OfferDescription();
@@ -179,6 +179,11 @@ public class Mapping {
         }
     }
 
+    /**
+     * Метод получения категории
+     * @param xmlOffer - сущность для работы с продуктами
+     * @return
+     */
     private static String GetCategoryName(@NotNull XmlOffer xmlOffer){
         if(xmlOffer.getCategories().size() != 0){
             int categoryId = xmlOffer.getCategories().get(0);
@@ -230,7 +235,7 @@ public class Mapping {
     }
 
     /**
-     * Получаем id произмя производителя по его имени
+     * Получаем id производителя по его имени
      * @param name - имя производителя
      * @return
      */

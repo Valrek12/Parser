@@ -43,7 +43,7 @@ public class XmlUtils {
 
     /**
      * Метод получения, скаченного Xml
-     * @return
+     * @return - получаем xml
      * @throws IOException
      * @throws SAXException
      * @throws ParserConfigurationException
