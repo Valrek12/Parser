@@ -12,8 +12,8 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 
-/*
-Класс описывающий логику загрузки
+/**
+ * Киласс описывающий логику работы парсера
  */
 public class StartLoader {
     private DbConnector connector;

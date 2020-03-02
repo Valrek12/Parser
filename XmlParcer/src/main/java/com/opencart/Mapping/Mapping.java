@@ -156,7 +156,7 @@ public class Mapping {
 
     /**
      * Метод добаляет или обновляет описание подукта
-     * @param xmlOffer - объект класса распарсенной Xml
+     * @param xmlOffer - бъект класса, работающий с распарсенными продуктами
      */
     private static void insertOrUpdateOfferDescription(@NotNull XmlOffer xmlOffer){
         Products products = Products.findFirst("sku = ?", xmlOffer.getId());
@@ -173,12 +173,22 @@ public class Mapping {
             offerDescription.setMetaTitle(xmlOffer.getName());
             offerDescription.setMetKeyword("");
             offerDescription.setDescription("");
-            offerDescription.setTag("Тег товара");
+            offerDescription.setTag(xmlOffer.getVendor() + GetCategoryName(xmlOffer));
             offerDescription.save();
             logger.debug(String.format("oc3_product_description: добавлена запись с id - %s ", id));
         }
     }
 
+    private static String GetCategoryName(@NotNull XmlOffer xmlOffer){
+        if(xmlOffer.getCategories().size() != 0){
+            int categoryId = xmlOffer.getCategories().get(0);
+            CategoryDescription model = CategoryDescription.findFirst("category_id = ?", categoryId);
+            String name = model.getName();
+            return name;
+        } else{
+            return "Нет категории";
+        }
+    }
 
     /**
      * Метод добавления продукта в бд opencart
@@ -219,12 +229,42 @@ public class Mapping {
         return id;
     }
 
+    /**
+     * Получаем id произмя производителя по его имени
+     * @param name - имя производителя
+     * @return
+     */
     private static int getManufactureId(String name){
         if(Manufacture.where("name = ?", name).size() != 0){
             Manufacture manufacture = Manufacture.findFirst("name = ?", name);
-            return manufacture.getInteger("manufacturer_id");
+            int id = manufacture.getInteger("manufacturer_id");
+            logger.info(String.format("ОБновлена запись в таблице manufacturer - %s", id));
+            ManufactureToStore(id);
+            return id;
         }else{
-            return 0;
+            Manufacture manufacture = new Manufacture();
+            manufacture.setImage("");
+            manufacture.setSortOrder(1);
+            manufacture.setName(name);
+            manufacture.save();
+            int id = manufacture.getManufactureId();
+            ManufactureToStore(id);
+            logger.info(String.format("Добавлена запись в таблицу manufacturer - %s", id));
+            return id;
+        }
+    }
+
+    /**
+     * Метод добавления записи в Manufacture_to_store
+     * @param id - id производителя
+     */
+    private static void ManufactureToStore(int id){
+        if(ManufactureToStore.where("manufacture_id = ?", id).size() == 0){
+            ManufactureToStore manufactureToStore = new ManufactureToStore();
+            manufactureToStore.setManufactureId(id);
+            manufactureToStore.setStoreId(0);
+            manufactureToStore.save();
+            logger.info(String.format("Добавлена запись в таблицу manufacture_to_store с id - %s",  id));
         }
     }
 

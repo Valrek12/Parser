@@ -43,9 +43,7 @@ public class XmlCategories {
         return parentId;
     }
 
-    public String getName(){
-        return name;
-    }
+    public String getName(){ return name; }
 
     public static ArrayList<XmlCategories> getCategories (@NotNull XmlUtils xmlDeserialization) throws ParserConfigurationException, SAXException, IOException {
         NodeList employeeElements = xmlDeserialization.getDocument().getDocumentElement().getElementsByTagName("category");

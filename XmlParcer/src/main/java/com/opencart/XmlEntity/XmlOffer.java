@@ -17,7 +17,6 @@ import java.util.ArrayList;
 
 public class XmlOffer {
     private int id;
-
     private boolean available;
     private String url;
     private ArrayList<Integer> categories;

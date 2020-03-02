@@ -13,7 +13,7 @@ public class Manufacture extends Model {
         set("manufacturer_id", id);
     }
 
-    public int getModel(){
+    public int getManufactureId(){
         return getInteger("manufacturer_id");
     }
 
@@ -21,7 +21,17 @@ public class Manufacture extends Model {
         set("name", name);
     }
 
-    public String getNAme(){
+    public String getName(){
         return getString("name");
     }
+
+    public void setImage(String image){set("image", image);}
+
+    public String getImage(){
+        return getString("image");
+    }
+
+    public void setSortOrder(int sortOrder){ set("sort_order", sortOrder); }
+
+    public int getSortOrder(){ return getInteger("sort_order"); }
 }

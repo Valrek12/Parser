@@ -39,8 +39,8 @@ public class ImageController {
 
     /**
      * Вспомогательный метод, преобразует строку в нужный формат, убирает в пути - '/'
-     * @param uri
-     * @return
+     * @param uri - uri, который необходимо преобразовать.
+     * @return name - преобразовананя стркоа
      */
     @NotNull
     private String ConvertToName(@NotNull String uri){
