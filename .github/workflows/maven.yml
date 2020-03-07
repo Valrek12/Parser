@@ -16,6 +16,8 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: run deploy
+      run: mvn clean deploy
     - name: Upload artifact
       with:
         name:  Xml.jar
