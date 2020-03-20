@@ -24,7 +24,7 @@
 	
 	 	mvn package
 			
-	 4) Вот что должно получится
+  4) Вот что должно получится
 	
 	[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ XmlParcer ---
 	[INFO] Building jar: /home/valerey/IdeaProjects/opencard/XmlParcer/target/XmlParcer-1.0-SNAPSHOT.jar
