@@ -1,7 +1,9 @@
 package com.opencart.Dao;
 
 import org.javalite.activejdbc.Model;
+import org.javalite.activejdbc.annotations.Table;
 
+@Table("oc3_manufacturer_to_store")
 public class ManufactureToStore extends Model {
     public void setManufactureId(int id){
         set("manufacturer_id", id);

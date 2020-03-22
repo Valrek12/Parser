@@ -162,7 +162,7 @@ public class Mapping {
         Products products = Products.findFirst("sku = ?", xmlOffer.getId());
         int id = (int) products.get("product_id");
         if(OfferDescription.where("product_id = ?", id).size() != 0){
-            OfferDescription.update("name = ?, description = ?, tag = ?", "product_id= ?", xmlOffer.getName(), "", xmlOffer.getVendor() + GetCategoryName(xmlOffer), id);
+            OfferDescription.update("name = ?, description = ?, tag = ?", "product_id= ?", xmlOffer.getName(), "", GetCategoryName(xmlOffer) + " " + xmlOffer.getVendor() + "," + xmlOffer.getVendor(), id);
             logger.debug(String.format("oc3_product_description: обновлена запись с id - %s ", id));
         }else {
             OfferDescription offerDescription = new OfferDescription();
@@ -173,7 +173,7 @@ public class Mapping {
             offerDescription.setMetaTitle(xmlOffer.getName());
             offerDescription.setMetKeyword("");
             offerDescription.setDescription("");
-            offerDescription.setTag(xmlOffer.getVendor() + GetCategoryName(xmlOffer));
+            offerDescription.setTag(GetCategoryName(xmlOffer) + " " + xmlOffer.getVendor() + "," + xmlOffer.getVendor());
             offerDescription.save();
             logger.debug(String.format("oc3_product_description: добавлена запись с id - %s ", id));
         }
@@ -252,7 +252,8 @@ public class Mapping {
             manufacture.setSortOrder(1);
             manufacture.setName(name);
             manufacture.save();
-            int id = manufacture.getManufactureId();
+            Manufacture manufacturer = Manufacture.findFirst("name = ?", name);
+            int id = manufacturer.getManufactureId();
             ManufactureToStore(id);
             logger.info(String.format("Добавлена запись в таблицу manufacturer - %s", id));
             return id;
@@ -264,12 +265,12 @@ public class Mapping {
      * @param id - id производителя
      */
     private static void ManufactureToStore(int id){
-        if(ManufactureToStore.where("manufacture_id = ?", id).size() == 0){
+        if(ManufactureToStore.where("manufacturer_id = ?", id).size() == 0){
             ManufactureToStore manufactureToStore = new ManufactureToStore();
             manufactureToStore.setManufactureId(id);
             manufactureToStore.setStoreId(0);
             manufactureToStore.save();
-            logger.info(String.format("Добавлена запись в таблицу manufacture_to_store с id - %s",  id));
+            logger.info(String.format("Добавлена запись в таблицу manufacturer_to_store с id - %s",  id));
         }
     }
 
