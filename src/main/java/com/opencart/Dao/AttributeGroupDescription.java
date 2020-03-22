@@ -3,15 +3,14 @@ package com.opencart.Dao;
 import org.javalite.activejdbc.Model;
 import org.javalite.activejdbc.annotations.Table;
 
-@Table("oc3_attribute_description")
-public class AttributeDescription extends Model {
-    public void setAttributeId(int id){
-        set("attribute_id", id);
+@Table("oc3_attribute_group_description")
+public class AttributeGroupDescription extends Model {
+    public void setAttributeGroupId(int id){
+        set("attribute_group_id", id);
     }
-    public int getAttributeId(){
-        return getInteger("attribute_id");
+    public int getAttributeGroupId(){
+        return getInteger("attribute_group_id");
     }
-
 
     public void setLanguage(int id){set("language_id", id);}
     public int getLanguage(){return getInteger("language_id");}
