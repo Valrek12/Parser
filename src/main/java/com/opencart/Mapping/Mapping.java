@@ -162,7 +162,7 @@ public class Mapping {
         Products products = Products.findFirst("sku = ?", xmlOffer.getId());
         int id = (int) products.get("product_id");
         if(OfferDescription.where("product_id = ?", id).size() != 0){
-            OfferDescription.update("name = ?, description = ?, tag = ?", "product_id= ?", xmlOffer.getName(), "", GetCategoryName(xmlOffer) + " " + xmlOffer.getVendor() + "," + xmlOffer.getVendor(), id);
+            OfferDescription.update("name = ?, description = ?, tag = ?", "product_id= ?", xmlOffer.getName(), "", GetCategoryName(xmlOffer)  + ", " +  xmlOffer.getVendor(), id);
             logger.debug(String.format("oc3_product_description: обновлена запись с id - %s ", id));
         }else {
             OfferDescription offerDescription = new OfferDescription();
@@ -173,7 +173,7 @@ public class Mapping {
             offerDescription.setMetaTitle(xmlOffer.getName());
             offerDescription.setMetKeyword("");
             offerDescription.setDescription("");
-            offerDescription.setTag(GetCategoryName(xmlOffer) + " " + xmlOffer.getVendor() + "," + xmlOffer.getVendor());
+            offerDescription.setTag(GetCategoryName(xmlOffer)  + ", " +  xmlOffer.getVendor());
             offerDescription.save();
             logger.debug(String.format("oc3_product_description: добавлена запись с id - %s ", id));
         }
@@ -240,7 +240,7 @@ public class Mapping {
      * @return
      */
     private static int getManufactureId(String name){
-        if(Manufacture.where("name = ?", name).size() != 0){
+        if(Manufacture.findFirst("name = ?", name) != null){
             Manufacture manufacture = Manufacture.findFirst("name = ?", name);
             int id = manufacture.getInteger("manufacturer_id");
             logger.info(String.format("ОБновлена запись в таблице manufacturer - %s", id));

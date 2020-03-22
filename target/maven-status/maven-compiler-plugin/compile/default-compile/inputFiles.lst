@@ -3,6 +3,7 @@
 /home/valerey/IdeaProjects/opencard/src/main/java/com/opencart/Mapping/Mapping.java
 /home/valerey/IdeaProjects/opencard/src/main/java/com/opencart/Utils/XmlUtils.java
 /home/valerey/IdeaProjects/opencard/src/main/java/com/opencart/Dao/OfferDescription.java
+/home/valerey/IdeaProjects/opencard/src/main/java/com/opencart/Dao/ProductAttribute.java
 /home/valerey/IdeaProjects/opencard/src/main/java/com/opencart/StartLoader.java
 /home/valerey/IdeaProjects/opencard/src/main/java/com/opencart/Dao/ManufactureToStore.java
 /home/valerey/IdeaProjects/opencard/src/main/java/com/opencart/Application.java
