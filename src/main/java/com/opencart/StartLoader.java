@@ -36,7 +36,6 @@ public class StartLoader {
       CreateDump();
       xmlUtils.DownloadXml(xmlUtils.xmlFIle);
       logger.debug(String.format("файл с именем -%s успешно выгружен", xmlUtils.nameFile));
-      Category.deleteAll();
       mapping.CategoryMapping();
       mapping.UpdateDescriptionCategory();
       mapping.OfferMapping();
@@ -50,6 +49,8 @@ public class StartLoader {
       ArrayList<XmlOffer> xmlOffers = XmlOffer.getOffers(xmlUtils);
       for (XmlOffer offer: xmlOffers) {
           HtmlParserController htmlParserController = new HtmlParserController(offer.getDescription());
+          htmlParserController.getComplects();
+          htmlParserController.getSpecifications();
       }
   }
 

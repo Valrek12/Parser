@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class XmlOffer {
-    private int id;
+    private String id;
     private boolean available;
     private String url;
     private ArrayList<Integer> categories;
@@ -41,11 +41,11 @@ public class XmlOffer {
     }
 
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -157,7 +157,7 @@ public class XmlOffer {
             NamedNodeMap attributes = offerId.getAttributes();
             Element eElement = (Element) offerId;
             XmlOffer offer = new XmlOffer();
-            offer.setId(Integer.parseInt(attributes.getNamedItem("id").getNodeValue()));
+            offer.setId(attributes.getNamedItem("id").getNodeValue());
             offer.setAvailable(Boolean.parseBoolean(attributes.getNamedItem("available").getNodeValue()));
             getOfferEntity(eElement, offer);
             offers.add(offer);

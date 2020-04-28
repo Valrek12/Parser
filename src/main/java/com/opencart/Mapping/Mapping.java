@@ -1,6 +1,7 @@
 package com.opencart.Mapping;
 
 import com.opencart.Dao.*;
+import com.opencart.Utils.HtmlParserController;
 import com.opencart.Utils.ImageController;
 import com.opencart.Utils.XmlUtils;
 import com.opencart.XmlEntity.XmlCategories;
@@ -139,6 +140,13 @@ public class Mapping {
         }
     }
 
+    private static void InsertAttribute(@NotNull XmlOffer xmlOffer){
+        HtmlParserController htmlParserController = new HtmlParserController(xmlOffer.getDescription());
+        AttributeDescription attributeDescription = new AttributeDescription();
+        String complects = htmlParserController.getComplects();
+
+    }
+
     /**
      * Метод  добавляет данные в таблицу Product_to_category
      * @param xmlOffer - объект класса, работающий с распарсенными продуктами
@@ -162,7 +170,7 @@ public class Mapping {
         Products products = Products.findFirst("sku = ?", xmlOffer.getId());
         int id = (int) products.get("product_id");
         if(OfferDescription.where("product_id = ?", id).size() != 0){
-            OfferDescription.update("name = ?, description = ?, tag = ?", "product_id= ?", xmlOffer.getName(), "", GetCategoryName(xmlOffer)  + ", " +  xmlOffer.getVendor(), id);
+            OfferDescription.update("name = ?, description = ?, tag = ?", "product_id= ?", xmlOffer.getName(), xmlOffer.getDescription(), GetCategoryName(xmlOffer)  + ", " +  xmlOffer.getVendor(), id);
             logger.debug(String.format("oc3_product_description: обновлена запись с id - %s ", id));
         }else {
             OfferDescription offerDescription = new OfferDescription();
