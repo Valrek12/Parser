@@ -1,6 +1,10 @@
 package com.opencart.Utils;
 
+import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -15,12 +19,14 @@ import java.io.StringReader;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class XmlUtils {
 
     public Settings settings;
     public String xmlFIle;
     public String nameFile;
+    public ArrayList<Integer> categoriesIds;
 
     /**
      * Метод скачиваеь файл, по указанному пути в application.properties
@@ -39,6 +45,7 @@ public class XmlUtils {
         settings = new Settings();
         xmlFIle = settings.getFile();
         nameFile = settings.getNameFile();
+
     }
 
     /**
@@ -64,14 +71,29 @@ public class XmlUtils {
             }
         });
         Document document = builder.parse(nameFile);
+        this.categoriesIds = GetCategoryIds(document);
         return  document;
+    }
+
+    @NotNull
+    private static  ArrayList<Integer> GetCategoryIds(@NotNull Document document)  {
+        ArrayList<Integer> CategoryIds = new ArrayList<>();
+        NodeList employeeElements = document.getDocumentElement().getElementsByTagName("category");
+        for (int i = 0; i < employeeElements.getLength(); i++) {
+            Node employee = employeeElements.item(i);
+            NamedNodeMap attributes = employee.getAttributes();
+            CategoryIds.add(Integer.parseInt(attributes.getNamedItem("id").getNodeValue()));
+        }
+       return CategoryIds;
     }
 
     /**
      * Метод удаления скаченного файла
      */
     public void DeleteXml(){
-      new File(nameFile).delete();
+        if(new File(nameFile).exists()){
+            new File(nameFile).delete();
+        }
     }
 
 }

@@ -45,22 +45,26 @@ public class Mapping {
             logger.error(String.format("Возникла ошибка при парсинге XML, подробности - %s ", e.getMessage()));
         }
         for(XmlCategories xmlCategory: xmlCategories){
+
             Category category = new Category();
-            category.setCategoryId(xmlCategory.getId());
-            category.setParentId(xmlCategory.getParentId());
-            category.setImage("");
-            category.setTop(true);
-            category.setSortOrder(false);
-            category.setStickers(false);
-            category.setDateAdded(new java.sql.Date(Instant.now().toEpochMilli()));
-            category.setDateModified(new java.sql.Date(Instant.now().toEpochMilli()));
-            category.setStatus(true);
-            category.save();
-            logger.info(String.format("Добавлена запись в таблицу oc3_category c category_id - %s", xmlCategory.getId()));
-            UpdateCategoryLayout(xmlCategory);
-            logger.info(String.format("Добавлена запись в таблицу oc3_category_to_layout с id -%s", xmlCategory.getId()));
-            UpdateToStoreCategory(xmlCategory);
-            logger.info(String.format("Добавлена запись в таблицу oc3_category_to_store с id -%s", xmlCategory.getId()));
+            if(CategoryToStore.where("category_id = ?", xmlCategory.getId()).size() == 0){
+                category.setCategoryId(xmlCategory.getId());
+                category.setParentId(xmlCategory.getParentId());
+                category.setImage("");
+                category.setTop(true);
+                category.setSortOrder(false);
+                category.setStickers(false);
+                category.setDateAdded(new java.sql.Date(Instant.now().toEpochMilli()));
+                category.setDateModified(new java.sql.Date(Instant.now().toEpochMilli()));
+                category.setStatus(true);
+                category.save();
+                logger.info(String.format("Добавлена запись в таблицу oc3_category c category_id - %s", xmlCategory.getId()));
+                UpdateCategoryLayout(xmlCategory);
+                logger.info(String.format("Добавлена запись в таблицу oc3_category_to_layout с id -%s", xmlCategory.getId()));
+                UpdateToStoreCategory(xmlCategory);
+                logger.info(String.format("Добавлена запись в таблицу oc3_category_to_store с id -%s", xmlCategory.getId()));
+            }
+
         }
         logger.info("Данные успешно загружены в таблицу oc3_category ");
 

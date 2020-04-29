@@ -22,6 +22,7 @@ public class XmlCategories {
     private  String name;
     private static ArrayList<XmlCategories> categories = new ArrayList<XmlCategories>();
     private static final Logger logger = LogManager.getLogger(XmlCategories.class);
+    public  ArrayList<Integer> ListId;
 
     @Contract(pure = true)
     public XmlCategories(){
@@ -52,7 +53,7 @@ public class XmlCategories {
             NamedNodeMap attributes = employee.getAttributes();
             Element eElement = (Element) employee;
 
-            if(attributes.getNamedItem("parentId") != null) {
+            if(attributes.getNamedItem("parentId") != null && xmlDeserialization.categoriesIds.contains(Integer.parseInt(attributes.getNamedItem("parentId").getNodeValue()))) {
                 //  Атрибут - тоже Node, потому нам нужно получить значение атрибута с помощью метода getNodeValue()
                 categories.add(new XmlCategories(Integer.parseInt(attributes.getNamedItem("id").getNodeValue()), Integer.parseInt(attributes.getNamedItem("parentId").getNodeValue()), eElement.getFirstChild().getNodeValue()));
             }else{
@@ -65,5 +66,19 @@ public class XmlCategories {
             logger.debug("Парсинг категорий прошел успешно");
         return categories;
     }
+
+
+    private static boolean SearchCategoryId(int id, XmlUtils xmlDeserialization) throws ParserConfigurationException, SAXException, IOException {
+        NodeList employeeElements = xmlDeserialization.getDocument().getDocumentElement().getElementsByTagName("category");
+        for (int i = 0; i < employeeElements.getLength(); i++) {
+            Node employee = employeeElements.item(i);
+            NamedNodeMap attributes = employee.getAttributes();
+            if(Integer.parseInt(attributes.getNamedItem("id").getNodeValue()) == id){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }

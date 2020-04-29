@@ -32,9 +32,9 @@ public class StartLoader {
   }
 
   public void LoadDataBase() throws IOException, ParserConfigurationException, SAXException {
-      connector.ConnectionOpen();
-      CreateDump();
+      xmlUtils.DeleteXml();
       xmlUtils.DownloadXml(xmlUtils.xmlFIle);
+      connector.ConnectionOpen();
       logger.debug(String.format("файл с именем -%s успешно выгружен", xmlUtils.nameFile));
       mapping.CategoryMapping();
       mapping.UpdateDescriptionCategory();
