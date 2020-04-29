@@ -1,12 +1,11 @@
 package com.opencart;
 
-import com.opencart.Dao.Category;
-import com.opencart.Dao.CategoryTemp;
-import com.opencart.Mapping.Mapping;
-import com.opencart.Utils.DbConnector;
-import com.opencart.Utils.HtmlParserController;
-import com.opencart.Utils.XmlUtils;
-import com.opencart.XmlEntity.XmlOffer;
+import com.opencart.dao.CategoryTemp;
+import com.opencart.mapping.Mapping;
+import com.opencart.utils.DbConnector;
+import com.opencart.utils.HtmlParserController;
+import com.opencart.utils.XmlUtils;
+import com.opencart.xmlEntity.XmlOffer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.xml.sax.SAXException;
