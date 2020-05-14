@@ -30,6 +30,8 @@ public class DbConnector {
         }
     }
 
+
+
     public void ConnectionClose(){
         Base.close();
     }
