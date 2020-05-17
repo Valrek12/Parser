@@ -7,11 +7,7 @@
 <div th:fragment="footer">
     <div class="container">
         <footer>
-            <!-- FOOTER -->
-            <!-- Благодаря дополнительной библиотеке которую мы опционально подключали в pom мы моежм использовать
-            вспомогательные теги и без особых трудностей выводить имя пользователя на странице
-            ВАЖНО! Старайтесь писать на английском, даже если не имеете подобного опыта(переводчик),
-            это сэкономит вам нервы(проблемы с кодировками, фильтры) и даст бесценный опыт в будущем -->
+
             © 2018 leodev.ru
             <span sec:authorize="isAuthenticated()">| Logged user: <span sec:authentication="name"></span> |
                 Roles: <span sec:authentication="principal.authorities"></span> |

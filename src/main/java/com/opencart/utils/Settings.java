@@ -10,7 +10,9 @@ import java.util.Properties;
  */
 public class Settings {
     public static final String PATH_TO_PROPERTIES = "src/main/resources/application.properties";
-    FileInputStream fileInputStream;
+
+
+    private String file;
     Properties prop = new Properties();
 
     public Properties ReadProperties() throws IOException {
@@ -19,13 +21,18 @@ public class Settings {
         return prop;
     }
 
+
+    public void setFile(String file) {
+        this.file = file;
+    }
+
     /**
      * Метод получения uri из конфига
      * @return
      * @throws IOException
      */
     public String getFile() throws IOException {
-        String file = ReadProperties().getProperty("uri");
+        String file = this.file;
         return file;
     }
 
