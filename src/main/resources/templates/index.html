@@ -1,9 +1,11 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel='stylesheet' href='/webjars/bootstrap/css/bootstrap.min.css'>
 
 <head>
-    <title>Spring Boot Thymeleaf + Spring Security</title>
+    <title>Home</title>
+    <div th:replace="fragments/header :: header-css"/>
 </head>
 <body>
 
@@ -13,6 +15,8 @@
 
     <div class="starter-template">
       Страница обрабатывается модератором.
+            <h1>Spring Boot Web Thymeleaf + Spring Security</h1>
+            <h2>1. Посетите <a th:href="@{/admin}">страницу Admin (Защищено с помошью Spring Security, нужны права Администратора(Admin Role))</a></h2>
     </div>
 
 </div>

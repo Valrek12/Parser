@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/index", "/about", "/css/*").permitAll()
+                .antMatchers("/", "/index", "/about").permitAll()
                 .antMatchers("/admin/**").hasAnyRole("ADMIN")
                 .antMatchers("/user/**").hasAnyRole("USER")
                 .anyRequest().authenticated()
@@ -40,7 +40,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // создаем пользоватлелей, admin и user
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+
         auth.inMemoryAuthentication()
+                .withUser("user").password("password").roles("USER")
+                .and()
                 .withUser("admin").password("password").roles("ADMIN");
     }
 }

@@ -16,9 +16,9 @@ public class MainController {
         return "/admin";
     }
 
-    @GetMapping("/user")
-    public String user() {
-        return "/user";
+    @GetMapping("/reporting")
+    public String reporting() {
+        return "/reporting";
     }
 
     @GetMapping("/about")
@@ -31,8 +31,14 @@ public class MainController {
         return "/login";
     }
 
+    @GetMapping("/settings")
+    public String settings(){
+        return "/settings";
+    }
+
     @GetMapping("/403")
     public String error403() {
         return "/error/403";
     }
+
 }
