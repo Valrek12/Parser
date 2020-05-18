@@ -11,39 +11,22 @@
 </head>
 <body>
 <div th:fragment="header">
-    <!-- this is header -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="@{/}">Parser</a>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" th:href="@{/}">Opencart Utils</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a th:href="@{/}">Home</a></li>
+                        <li class="active"><a th:href="@{/about}">Wiki</a></li>
+                        <li class="active"><a th:href="@{/crm}">CRM</a></li>
+                        <li class="active"><a th:href="@{/parser}">Parser</a></li>
+                        <li class="active"><a th:href="@{/settings}">Settings</a></li>
+                    </ul>
+                </div>
             </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="@{/}">Home</a></li>
-                    <li><a th:href="@{/about}">About</a></li>
-                    <li><a th:href="@{/contact}">Contact</a></li>
-                    <li><a th:href="@{/settings}">Settings</a></li>
-                    <li><a th:href="@{/reporting}">Wiki</a></li>
-                    <li class="dropdown">
-                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a th:href="@{/parser}">Parser</a></li>
-                            <li><a th:href="@{/crm}">CRM</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li class="dropdown-header">Reporting</li>
-                            <li><a th:href="@{/reporting}">Monitoring System</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+        </nav>
 </div>
 
 </body>
