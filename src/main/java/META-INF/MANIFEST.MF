@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Main-Class: com.opencart.SpringBootWebApplication
+Class-Path: spring-boot-starter-thymeleaf-1.5.3.RELEASE.jar mariadb-java
+ -client-1.1.9.jar spring-boot-starter-web-1.5.3.RELEASE.jar bootstrap-3
+ .3.7.jar spring-expression-4.3.8.RELEASE.jar ognl-3.0.8.jar spring-secu
+ rity-core-4.2.2.RELEASE.jar annotations-19.0.0.jar spring-boot-devtools
+ -1.5.3.RELEASE.jar spring-core-4.3.8.RELEASE.jar spring-context-4.3.8.R
+ ELEASE.jar spring-aop-4.3.8.RELEASE.jar log4j-over-slf4j-1.7.25.jar spr
+ ing-boot-starter-1.5.3.RELEASE.jar log4j-core-2.6.1.jar jsoup-1.8.3.jar
+  spring-security-web-4.2.2.RELEASE.jar commons-dbcp-1.4.jar thymeleaf-e
+ xtras-springsecurity4-2.1.3.RELEASE.jar snakeyaml-1.17.jar spring-web-4
+ .3.8.RELEASE.jar activejdbc-2.3.jar jboss-logging-3.3.1.Final.jar thyme
+ leaf-2.1.5.RELEASE.jar spring-security-config-4.2.2.RELEASE.jar hiberna
+ te-validator-5.3.5.Final.jar log4j-api-2.6.1.jar tomcat-embed-websocket
+ -8.5.14.jar thymeleaf-spring4-2.1.5.RELEASE.jar spring-webmvc-4.3.8.REL
+ EASE.jar commons-pool-1.6.jar validation-api-1.1.0.Final.jar spring-boo
+ t-autoconfigure-1.5.3.RELEASE.jar spring-boot-starter-security-1.5.3.RE
+ LEASE.jar jackson-core-2.8.8.jar tomcat-embed-core-8.5.14.jar spring-bo
+ ot-1.5.3.RELEASE.jar jna-3.3.0-platform.jar jna-4.2.2.jar app-config-2.
+ 3.jar spring-boot-starter-logging-1.5.3.RELEASE.jar logback-classic-1.1
+ .11.jar jcl-over-slf4j-1.7.25.jar jul-to-slf4j-1.7.25.jar thymeleaf-lay
+ out-dialect-1.4.0.jar jackson-annotations-2.8.0.jar javassist-3.21.0-GA
+ .jar slf4j-api-1.7.25.jar jackson-databind-2.8.8.jar groovy-2.4.10.jar 
+ javalite-common-2.3.jar logback-core-1.1.11.jar dom4j-2.1.1.jar jquery-
+ 1.11.1.jar unbescape-1.1.0.RELEASE.jar classmate-1.3.3.jar tomcat-embed
+ -el-8.5.14.jar spring-beans-4.3.8.RELEASE.jar spring-boot-starter-tomca
+ t-1.5.3.RELEASE.jar
+
