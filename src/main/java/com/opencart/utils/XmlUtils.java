@@ -1,5 +1,6 @@
 package com.opencart.utils;
 
+import com.opencart.webapp.view.ContentTypeToXml;
 import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
@@ -42,6 +43,8 @@ public class XmlUtils {
     }
 
     public XmlUtils() throws IOException {
+        ContentTypeToXml typeToXml = new ContentTypeToXml();
+
         settings = new Settings();
         xmlFIle = settings.getFile();
         nameFile = settings.getNameFile();

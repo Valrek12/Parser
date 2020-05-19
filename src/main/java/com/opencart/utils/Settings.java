@@ -1,5 +1,7 @@
 package com.opencart.utils;
 
+import com.opencart.webapp.view.ContentTypeToXml;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -19,7 +21,6 @@ public class Settings {
         prop.load(inputStream);
         return prop;
     }
-
 
     public void setFile(String file) {
         this.file = file;

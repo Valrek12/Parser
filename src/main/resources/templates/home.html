@@ -1,23 +1,16 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Opencart Util</title>
+    <title>Opencart Utils</title>
     <div th:replace="fragments/header :: header-css"/>
 </head>
 <body>
 <div th:replace="fragments/header :: header"/>
 <div class="container theme-showcase" role="main">
-
     <div class="jumbotron" aria-atomic="true">
         <h1>Paser opencart</h1>
-        <p>Загрузка xml, парсинг товаров и категорий.</p>
+        <p>Загрузка xml, парсинг товаров и категорий. Посетите страницу Wiki, для подробного описания работы Parsera</p>
     </div>
-    <div class="form-group">
-        <input type="text" name="XmlUri" id="XmlUri" class="form-control input-lg"
-               placeholder="Введите адресс Xml" required="true" autofocus="true"/>
-    </div>
-    <button type="button" class="btn btn-default">Загрузить xml</button>
-
 </div>
 
 <div th:replace="fragments/footer :: footer"/>

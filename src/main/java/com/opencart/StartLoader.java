@@ -30,9 +30,9 @@ public class StartLoader {
       this.mapping = new Mapping();
   }
 
-  public void LoadDataBase() throws IOException, ParserConfigurationException, SAXException {
+  public void LoadDataBase(String xmlUri) throws IOException, ParserConfigurationException, SAXException {
       xmlUtils.DeleteXml();
-      xmlUtils.DownloadXml(xmlUtils.xmlFIle);
+      xmlUtils.DownloadXml(xmlUri);
       connector.ConnectionOpen();
       logger.debug(String.format("файл с именем -%s успешно выгружен", xmlUtils.nameFile));
       mapping.CategoryMapping();

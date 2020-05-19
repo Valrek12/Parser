@@ -10,7 +10,7 @@ public class Application {
     public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException {
 
         StartLoader startLoader = new StartLoader();
-        startLoader.LoadDataBase();
+        startLoader.LoadDataBase("as");
     }
 }
 

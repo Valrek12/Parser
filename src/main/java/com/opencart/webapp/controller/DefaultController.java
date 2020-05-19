@@ -1,7 +1,16 @@
 package com.opencart.webapp.controller;
 
+import com.opencart.StartLoader;
+import com.opencart.webapp.view.ContentTypeToXml;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
 
 @Controller
 public class DefaultController {
@@ -52,8 +61,15 @@ public class DefaultController {
     }
 
     @GetMapping("/parser")
-    public String parser() {
+    public String parserForm(Model model) {
+        model.addAttribute("parser", new ContentTypeToXml());
         return "/parser";
+    }
+
+    @PostMapping("/parser")
+    public String parserSubmit(@ModelAttribute ContentTypeToXml contentTypeToXml) throws ParserConfigurationException, SAXException, IOException {
+        StartLoader startLoader = new StartLoader();
+        return "/result";
     }
 
     @GetMapping("/403")
