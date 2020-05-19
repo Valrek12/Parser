@@ -2,6 +2,9 @@ package com.opencart.webapp.controller;
 
 import com.opencart.StartLoader;
 import com.opencart.webapp.view.ContentTypeToXml;
+import com.opencart.webapp.view.MessageHandlerError;
+import org.jsoup.HttpStatusException;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -67,9 +70,15 @@ public class DefaultController {
     }
 
     @PostMapping("/parser")
-    public String parserSubmit(@ModelAttribute ContentTypeToXml contentTypeToXml) throws ParserConfigurationException, SAXException, IOException {
-        StartLoader startLoader = new StartLoader();
-        return "/result";
+    public String parserSubmit(@ModelAttribute ContentTypeToXml contentTypeToXml, Model model) throws ParserConfigurationException, SAXException, IOException {
+        try{
+            StartLoader startLoader = new StartLoader();
+            startLoader.LoadDataBase(contentTypeToXml.getContent());
+            return "/result";
+        }catch (HttpStatusException ex){
+            model.addAttribute("error", new MessageHandlerError());
+            return "/500";
+        }
     }
 
     @GetMapping("/403")

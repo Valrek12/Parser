@@ -20,3 +20,200 @@
 2020-05-19 19:52:46,366 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 32, parentId - 0, name - Аксессуары
 2020-05-19 19:52:46,366 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 46, parentId - 0, name - Товары со скидкой
 2020-05-19 19:52:46,366 DEBUG c.o.x.XmlCategories [http-nio-8080-exec-2] Парсинг категорий прошел успешно
+2020-05-19 21:14:26,671 DEBUG c.o.u.DbConnector [http-nio-8080-exec-1] соединение c ceрвером базы данных - jdbc:mariadb://marsmart.ru:3306/opencart успешно уставновлено
+2020-05-19 21:14:26,681 DEBUG c.o.StartLoader [http-nio-8080-exec-1] файл с именем -yaml_catalog.xml успешно выгружен
+2020-05-19 21:14:26,916 INFO c.o.x.XmlCategories [http-nio-8080-exec-1]  id - 22, parentId - 0, name - Батуты
+2020-05-19 21:14:26,917 INFO c.o.x.XmlCategories [http-nio-8080-exec-1]  id - 50, parentId - 22, name - Simple series
+2020-05-19 21:14:26,921 INFO c.o.x.XmlCategories [http-nio-8080-exec-1]  id - 36, parentId - 22, name - Classic series
+2020-05-19 21:14:26,921 INFO c.o.x.XmlCategories [http-nio-8080-exec-1]  id - 37, parentId - 22, name - Supreme series
+2020-05-19 21:14:26,922 INFO c.o.x.XmlCategories [http-nio-8080-exec-1]  id - 41, parentId - 22, name - Аксессуары
+2020-05-19 21:14:26,922 INFO c.o.x.XmlCategories [http-nio-8080-exec-1]  id - 29, parentId - 0, name - Беговые дорожки
+2020-05-19 21:14:26,922 INFO c.o.x.XmlCategories [http-nio-8080-exec-1]  id - 34, parentId - 29, name - ST series
+2020-05-19 21:14:26,923 INFO c.o.x.XmlCategories [http-nio-8080-exec-1]  id - 35, parentId - 29, name - MX series
+2020-05-19 21:14:26,923 INFO c.o.x.XmlCategories [http-nio-8080-exec-1]  id - 49, parentId - 29, name - Ultra-Slim series
+2020-05-19 21:14:26,924 INFO c.o.x.XmlCategories [http-nio-8080-exec-1]  id - 42, parentId - 29, name - Аксессуары
+2020-05-19 21:14:26,925 INFO c.o.x.XmlCategories [http-nio-8080-exec-1]  id - 33, parentId - 0, name - Велотренажеры
+2020-05-19 21:14:26,925 INFO c.o.x.XmlCategories [http-nio-8080-exec-1]  id - 48, parentId - 33, name - BL series
+2020-05-19 21:14:26,925 INFO c.o.x.XmlCategories [http-nio-8080-exec-1]  id - 47, parentId - 33, name - SB series
+2020-05-19 21:14:26,926 INFO c.o.x.XmlCategories [http-nio-8080-exec-1]  id - 31, parentId - 0, name - Эллиптические тренажеры
+2020-05-19 21:14:26,926 INFO c.o.x.XmlCategories [http-nio-8080-exec-1]  id - 38, parentId - 31, name - SL series
+2020-05-19 21:14:26,926 INFO c.o.x.XmlCategories [http-nio-8080-exec-1]  id - 39, parentId - 31, name - MV series
+2020-05-19 21:14:26,926 INFO c.o.x.XmlCategories [http-nio-8080-exec-1]  id - 45, parentId - 31, name - Аксессуары
+2020-05-19 21:14:26,927 INFO c.o.x.XmlCategories [http-nio-8080-exec-1]  id - 30, parentId - 0, name - Теннисные столы
+2020-05-19 21:14:26,927 INFO c.o.x.XmlCategories [http-nio-8080-exec-1]  id - 32, parentId - 0, name - Аксессуары
+2020-05-19 21:14:26,927 INFO c.o.x.XmlCategories [http-nio-8080-exec-1]  id - 46, parentId - 0, name - Товары со скидкой
+2020-05-19 21:14:26,927 DEBUG c.o.x.XmlCategories [http-nio-8080-exec-1] Парсинг категорий прошел успешно
+2020-05-19 21:32:07,288 DEBUG c.o.u.DbConnector [http-nio-8080-exec-6] соединение c ceрвером базы данных - jdbc:mariadb://marsmart.ru:3306/opencart успешно уставновлено
+2020-05-19 21:32:07,293 DEBUG c.o.StartLoader [http-nio-8080-exec-6] файл с именем -yaml_catalog.xml успешно выгружен
+2020-05-19 21:32:07,608 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 22, parentId - 0, name - Батуты
+2020-05-19 21:32:07,608 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 50, parentId - 22, name - Simple series
+2020-05-19 21:32:07,609 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 36, parentId - 22, name - Classic series
+2020-05-19 21:32:07,609 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 37, parentId - 22, name - Supreme series
+2020-05-19 21:32:07,612 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 41, parentId - 22, name - Аксессуары
+2020-05-19 21:32:07,612 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 29, parentId - 0, name - Беговые дорожки
+2020-05-19 21:32:07,613 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 34, parentId - 29, name - ST series
+2020-05-19 21:32:07,614 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 35, parentId - 29, name - MX series
+2020-05-19 21:32:07,616 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 49, parentId - 29, name - Ultra-Slim series
+2020-05-19 21:32:07,616 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 42, parentId - 29, name - Аксессуары
+2020-05-19 21:32:07,618 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 33, parentId - 0, name - Велотренажеры
+2020-05-19 21:32:07,626 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 48, parentId - 33, name - BL series
+2020-05-19 21:32:07,629 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 47, parentId - 33, name - SB series
+2020-05-19 21:32:07,631 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 31, parentId - 0, name - Эллиптические тренажеры
+2020-05-19 21:32:07,632 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 38, parentId - 31, name - SL series
+2020-05-19 21:32:07,633 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 39, parentId - 31, name - MV series
+2020-05-19 21:32:07,644 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 45, parentId - 31, name - Аксессуары
+2020-05-19 21:32:07,645 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 30, parentId - 0, name - Теннисные столы
+2020-05-19 21:32:07,646 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 32, parentId - 0, name - Аксессуары
+2020-05-19 21:32:07,647 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 46, parentId - 0, name - Товары со скидкой
+2020-05-19 21:32:07,647 DEBUG c.o.x.XmlCategories [http-nio-8080-exec-6] Парсинг категорий прошел успешно
+2020-05-19 21:32:10,132 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category c category_id - 22
+2020-05-19 21:32:10,243 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_layout с id -22
+2020-05-19 21:32:10,346 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_store с id -22
+2020-05-19 21:32:10,450 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category c category_id - 50
+2020-05-19 21:32:10,550 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_layout с id -50
+2020-05-19 21:32:10,651 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_store с id -50
+2020-05-19 21:32:10,754 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category c category_id - 36
+2020-05-19 21:32:10,857 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_layout с id -36
+2020-05-19 21:32:10,958 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_store с id -36
+2020-05-19 21:32:11,074 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category c category_id - 37
+2020-05-19 21:32:11,174 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_layout с id -37
+2020-05-19 21:32:11,274 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_store с id -37
+2020-05-19 21:32:11,377 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category c category_id - 41
+2020-05-19 21:32:11,478 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_layout с id -41
+2020-05-19 21:32:11,584 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_store с id -41
+2020-05-19 21:32:11,701 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category c category_id - 29
+2020-05-19 21:32:11,804 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_layout с id -29
+2020-05-19 21:32:11,905 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_store с id -29
+2020-05-19 21:32:12,006 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category c category_id - 34
+2020-05-19 21:32:12,110 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_layout с id -34
+2020-05-19 21:32:12,213 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_store с id -34
+2020-05-19 21:32:12,315 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category c category_id - 35
+2020-05-19 21:32:12,417 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_layout с id -35
+2020-05-19 21:32:12,532 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_store с id -35
+2020-05-19 21:32:12,641 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category c category_id - 49
+2020-05-19 21:32:12,742 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_layout с id -49
+2020-05-19 21:32:12,849 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_store с id -49
+2020-05-19 21:32:12,957 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category c category_id - 42
+2020-05-19 21:32:13,063 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_layout с id -42
+2020-05-19 21:32:13,170 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_store с id -42
+2020-05-19 21:32:13,273 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category c category_id - 33
+2020-05-19 21:32:13,375 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_layout с id -33
+2020-05-19 21:32:13,475 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_store с id -33
+2020-05-19 21:32:13,587 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category c category_id - 48
+2020-05-19 21:32:13,689 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_layout с id -48
+2020-05-19 21:32:13,794 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_store с id -48
+2020-05-19 21:32:13,896 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category c category_id - 47
+2020-05-19 21:32:13,997 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_layout с id -47
+2020-05-19 21:32:14,106 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_store с id -47
+2020-05-19 21:32:14,208 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category c category_id - 31
+2020-05-19 21:32:14,340 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_layout с id -31
+2020-05-19 21:32:14,441 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_store с id -31
+2020-05-19 21:32:14,543 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category c category_id - 38
+2020-05-19 21:32:14,645 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_layout с id -38
+2020-05-19 21:32:14,748 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_store с id -38
+2020-05-19 21:32:14,851 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category c category_id - 39
+2020-05-19 21:32:14,953 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_layout с id -39
+2020-05-19 21:32:15,054 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_store с id -39
+2020-05-19 21:32:15,160 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category c category_id - 45
+2020-05-19 21:32:15,265 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_layout с id -45
+2020-05-19 21:32:15,366 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_store с id -45
+2020-05-19 21:32:15,467 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category c category_id - 30
+2020-05-19 21:32:15,579 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_layout с id -30
+2020-05-19 21:32:15,684 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_store с id -30
+2020-05-19 21:32:15,788 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category c category_id - 32
+2020-05-19 21:32:15,899 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_layout с id -32
+2020-05-19 21:32:16,001 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_store с id -32
+2020-05-19 21:32:16,105 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category c category_id - 46
+2020-05-19 21:32:16,207 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_layout с id -46
+2020-05-19 21:32:16,310 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_to_store с id -46
+2020-05-19 21:32:16,310 INFO c.o.m.Mapping [http-nio-8080-exec-6] Данные успешно загружены в таблицу oc3_category 
+2020-05-19 21:32:16,384 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 22, parentId - 0, name - Батуты
+2020-05-19 21:32:16,384 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 50, parentId - 22, name - Simple series
+2020-05-19 21:32:16,384 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 36, parentId - 22, name - Classic series
+2020-05-19 21:32:16,385 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 37, parentId - 22, name - Supreme series
+2020-05-19 21:32:16,385 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 41, parentId - 22, name - Аксессуары
+2020-05-19 21:32:16,386 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 29, parentId - 0, name - Беговые дорожки
+2020-05-19 21:32:16,386 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 34, parentId - 29, name - ST series
+2020-05-19 21:32:16,387 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 35, parentId - 29, name - MX series
+2020-05-19 21:32:16,387 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 49, parentId - 29, name - Ultra-Slim series
+2020-05-19 21:32:16,387 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 42, parentId - 29, name - Аксессуары
+2020-05-19 21:32:16,387 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 33, parentId - 0, name - Велотренажеры
+2020-05-19 21:32:16,387 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 48, parentId - 33, name - BL series
+2020-05-19 21:32:16,387 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 47, parentId - 33, name - SB series
+2020-05-19 21:32:16,388 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 31, parentId - 0, name - Эллиптические тренажеры
+2020-05-19 21:32:16,388 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 38, parentId - 31, name - SL series
+2020-05-19 21:32:16,390 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 39, parentId - 31, name - MV series
+2020-05-19 21:32:16,390 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 45, parentId - 31, name - Аксессуары
+2020-05-19 21:32:16,390 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 30, parentId - 0, name - Теннисные столы
+2020-05-19 21:32:16,391 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 32, parentId - 0, name - Аксессуары
+2020-05-19 21:32:16,391 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 46, parentId - 0, name - Товары со скидкой
+2020-05-19 21:32:16,391 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 22, parentId - 0, name - Батуты
+2020-05-19 21:32:16,391 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 50, parentId - 22, name - Simple series
+2020-05-19 21:32:16,392 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 36, parentId - 22, name - Classic series
+2020-05-19 21:32:16,392 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 37, parentId - 22, name - Supreme series
+2020-05-19 21:32:16,392 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 41, parentId - 22, name - Аксессуары
+2020-05-19 21:32:16,392 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 29, parentId - 0, name - Беговые дорожки
+2020-05-19 21:32:16,392 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 34, parentId - 29, name - ST series
+2020-05-19 21:32:16,392 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 35, parentId - 29, name - MX series
+2020-05-19 21:32:16,392 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 49, parentId - 29, name - Ultra-Slim series
+2020-05-19 21:32:16,392 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 42, parentId - 29, name - Аксессуары
+2020-05-19 21:32:16,393 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 33, parentId - 0, name - Велотренажеры
+2020-05-19 21:32:16,393 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 48, parentId - 33, name - BL series
+2020-05-19 21:32:16,393 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 47, parentId - 33, name - SB series
+2020-05-19 21:32:16,393 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 31, parentId - 0, name - Эллиптические тренажеры
+2020-05-19 21:32:16,393 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 38, parentId - 31, name - SL series
+2020-05-19 21:32:16,393 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 39, parentId - 31, name - MV series
+2020-05-19 21:32:16,393 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 45, parentId - 31, name - Аксессуары
+2020-05-19 21:32:16,394 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 30, parentId - 0, name - Теннисные столы
+2020-05-19 21:32:16,394 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 32, parentId - 0, name - Аксессуары
+2020-05-19 21:32:16,394 INFO c.o.x.XmlCategories [http-nio-8080-exec-6]  id - 46, parentId - 0, name - Товары со скидкой
+2020-05-19 21:32:16,394 DEBUG c.o.x.XmlCategories [http-nio-8080-exec-6] Парсинг категорий прошел успешно
+2020-05-19 21:32:16,513 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_description c category_id - 22
+2020-05-19 21:32:16,620 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_description c category_id - 50
+2020-05-19 21:32:16,724 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_description c category_id - 36
+2020-05-19 21:32:16,884 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_description c category_id - 37
+2020-05-19 21:32:16,987 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_description c category_id - 41
+2020-05-19 21:32:17,099 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_description c category_id - 29
+2020-05-19 21:32:17,211 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_description c category_id - 34
+2020-05-19 21:32:17,315 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_description c category_id - 35
+2020-05-19 21:32:17,416 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_description c category_id - 49
+2020-05-19 21:32:17,522 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_description c category_id - 42
+2020-05-19 21:32:17,637 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_description c category_id - 33
+2020-05-19 21:32:17,754 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_description c category_id - 48
+2020-05-19 21:32:17,856 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_description c category_id - 47
+2020-05-19 21:32:17,958 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_description c category_id - 31
+2020-05-19 21:32:18,060 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_description c category_id - 38
+2020-05-19 21:32:18,180 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_description c category_id - 39
+2020-05-19 21:32:18,303 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_description c category_id - 45
+2020-05-19 21:32:18,406 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_description c category_id - 30
+2020-05-19 21:32:18,506 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_description c category_id - 32
+2020-05-19 21:32:18,617 INFO c.o.m.Mapping [http-nio-8080-exec-6] Добавлена запись в таблицу oc3_category_description c category_id - 46
+2020-05-19 21:32:18,727 INFO c.o.m.Mapping [http-nio-8080-exec-6] Обновлена запись в таблице oc3_category_description c category_id - 22
+2020-05-19 21:32:18,849 INFO c.o.m.Mapping [http-nio-8080-exec-6] Обновлена запись в таблице oc3_category_description c category_id - 50
+2020-05-19 21:32:18,955 INFO c.o.m.Mapping [http-nio-8080-exec-6] Обновлена запись в таблице oc3_category_description c category_id - 36
+2020-05-19 21:32:19,062 INFO c.o.m.Mapping [http-nio-8080-exec-6] Обновлена запись в таблице oc3_category_description c category_id - 37
+2020-05-19 21:32:19,166 INFO c.o.m.Mapping [http-nio-8080-exec-6] Обновлена запись в таблице oc3_category_description c category_id - 41
+2020-05-19 21:32:19,282 INFO c.o.m.Mapping [http-nio-8080-exec-6] Обновлена запись в таблице oc3_category_description c category_id - 29
+2020-05-19 21:32:19,436 INFO c.o.m.Mapping [http-nio-8080-exec-6] Обновлена запись в таблице oc3_category_description c category_id - 34
+2020-05-19 21:32:19,557 INFO c.o.m.Mapping [http-nio-8080-exec-6] Обновлена запись в таблице oc3_category_description c category_id - 35
+2020-05-19 21:32:19,885 INFO c.o.m.Mapping [http-nio-8080-exec-6] Обновлена запись в таблице oc3_category_description c category_id - 49
+2020-05-19 21:32:20,038 INFO c.o.m.Mapping [http-nio-8080-exec-6] Обновлена запись в таблице oc3_category_description c category_id - 42
+2020-05-19 21:32:20,164 INFO c.o.m.Mapping [http-nio-8080-exec-6] Обновлена запись в таблице oc3_category_description c category_id - 33
+2020-05-19 21:32:20,267 INFO c.o.m.Mapping [http-nio-8080-exec-6] Обновлена запись в таблице oc3_category_description c category_id - 48
+2020-05-19 21:32:20,380 INFO c.o.m.Mapping [http-nio-8080-exec-6] Обновлена запись в таблице oc3_category_description c category_id - 47
+2020-05-19 21:32:20,529 INFO c.o.m.Mapping [http-nio-8080-exec-6] Обновлена запись в таблице oc3_category_description c category_id - 31
+2020-05-19 21:32:20,648 INFO c.o.m.Mapping [http-nio-8080-exec-6] Обновлена запись в таблице oc3_category_description c category_id - 38
+2020-05-19 21:32:20,755 INFO c.o.m.Mapping [http-nio-8080-exec-6] Обновлена запись в таблице oc3_category_description c category_id - 39
+2020-05-19 21:32:20,872 INFO c.o.m.Mapping [http-nio-8080-exec-6] Обновлена запись в таблице oc3_category_description c category_id - 45
+2020-05-19 21:32:20,991 INFO c.o.m.Mapping [http-nio-8080-exec-6] Обновлена запись в таблице oc3_category_description c category_id - 30
+2020-05-19 21:32:21,093 INFO c.o.m.Mapping [http-nio-8080-exec-6] Обновлена запись в таблице oc3_category_description c category_id - 32
+2020-05-19 21:32:21,193 INFO c.o.m.Mapping [http-nio-8080-exec-6] Обновлена запись в таблице oc3_category_description c category_id - 46
+2020-05-19 21:32:21,220 INFO c.o.x.XmlOffer [http-nio-8080-exec-6] Offer c id -  318 распарсен успешно 
+2020-05-19 21:32:21,220 INFO c.o.x.XmlOffer [http-nio-8080-exec-6] Offer c id -  323 распарсен успешно 
+2020-05-19 21:32:21,221 INFO c.o.x.XmlOffer [http-nio-8080-exec-6] Offer c id -  326 распарсен успешно 
+2020-05-19 21:32:21,221 INFO c.o.x.XmlOffer [http-nio-8080-exec-6] Offer c id -  331 распарсен успешно 
+2020-05-19 21:32:21,222 INFO c.o.x.XmlOffer [http-nio-8080-exec-6] Offer c id -  334 распарсен успешно 
+2020-05-19 21:32:21,222 INFO c.o.x.XmlOffer [http-nio-8080-exec-6] Offer c id -  338 распарсен успешно 
+2020-05-19 21:32:21,223 INFO c.o.x.XmlOffer [http-nio-8080-exec-6] Offer c id -  339 распарсен успешно 
+2020-05-19 21:32:21,223 INFO c.o.x.XmlOffer [http-nio-8080-exec-6] Offer c id -  340 распарсен успешно 
+2020-05-19 21:32:21,223 INFO c.o.x.XmlOffer [http-nio-8080-exec-6] Offer c id -  341 распарсен успешно 
