@@ -5,17 +5,12 @@
     <title>Spring Security Example </title>
     <div th:replace="fragments/header :: header-css"/>
 </head>
-<body>
+<body class="text-center">
 
-<div th:replace="fragments/header :: header"/>
-
-<div class="container">
-    <div class="row" style="margin-top:10px">
-        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+<div class="container" align="center">
+        <div class="col-sm-4">
             <form th:action="@{/login}" method="post">
-                <fieldset>
-                    <h1>Please Sign In</h1>
-
+                    <h1> Please sign in</h1>
                     <div th:if="${param.error}">
                         <div class="alert alert-danger">
                             Invalid username and password.
@@ -37,15 +32,11 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-6">
-                            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign In"/>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="col-md-4">
+                            <input type="submit" class="btn btn-lg btn-dark btn-block" value="Sign In"/>
                         </div>
                     </div>
-                </fieldset>
             </form>
-        </div>
     </div>
 
 </div>
