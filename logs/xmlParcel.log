@@ -217,3 +217,49 @@
 2020-05-19 21:32:21,223 INFO c.o.x.XmlOffer [http-nio-8080-exec-6] Offer c id -  339 распарсен успешно 
 2020-05-19 21:32:21,223 INFO c.o.x.XmlOffer [http-nio-8080-exec-6] Offer c id -  340 распарсен успешно 
 2020-05-19 21:32:21,223 INFO c.o.x.XmlOffer [http-nio-8080-exec-6] Offer c id -  341 распарсен успешно 
+2020-05-20 13:54:41,557 ERROR c.o.u.DbConnector [http-nio-8080-exec-2] Ошибка соединения с бд, подробности: 
+2020-05-20 13:54:41,569 DEBUG c.o.StartLoader [http-nio-8080-exec-2] файл с именем -yaml_catalog.xml успешно выгружен
+2020-05-20 13:54:41,821 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 22, parentId - 0, name - Батуты
+2020-05-20 13:54:41,822 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 50, parentId - 22, name - Simple series
+2020-05-20 13:54:41,823 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 36, parentId - 22, name - Classic series
+2020-05-20 13:54:41,823 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 37, parentId - 22, name - Supreme series
+2020-05-20 13:54:41,823 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 41, parentId - 22, name - Аксессуары
+2020-05-20 13:54:41,824 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 29, parentId - 0, name - Беговые дорожки
+2020-05-20 13:54:41,824 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 34, parentId - 29, name - ST series
+2020-05-20 13:54:41,825 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 35, parentId - 29, name - MX series
+2020-05-20 13:54:41,826 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 49, parentId - 29, name - Ultra-Slim series
+2020-05-20 13:54:41,826 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 42, parentId - 29, name - Аксессуары
+2020-05-20 13:54:41,829 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 33, parentId - 0, name - Велотренажеры
+2020-05-20 13:54:41,831 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 48, parentId - 33, name - BL series
+2020-05-20 13:54:41,831 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 47, parentId - 33, name - SB series
+2020-05-20 13:54:41,832 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 31, parentId - 0, name - Эллиптические тренажеры
+2020-05-20 13:54:41,832 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 38, parentId - 31, name - SL series
+2020-05-20 13:54:41,832 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 39, parentId - 31, name - MV series
+2020-05-20 13:54:41,832 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 45, parentId - 31, name - Аксессуары
+2020-05-20 13:54:41,833 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 30, parentId - 0, name - Теннисные столы
+2020-05-20 13:54:41,834 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 32, parentId - 0, name - Аксессуары
+2020-05-20 13:54:41,834 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 46, parentId - 0, name - Товары со скидкой
+2020-05-20 13:54:41,834 DEBUG c.o.x.XmlCategories [http-nio-8080-exec-2] Парсинг категорий прошел успешно
+2020-05-20 14:09:03,551 ERROR c.o.u.DbConnector [http-nio-8080-exec-2] Ошибка соединения с бд, подробности: 
+2020-05-20 14:09:03,553 DEBUG c.o.StartLoader [http-nio-8080-exec-2] файл с именем -yaml_catalog.xml успешно выгружен
+2020-05-20 14:09:03,750 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 22, parentId - 0, name - Батуты
+2020-05-20 14:09:03,750 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 50, parentId - 22, name - Simple series
+2020-05-20 14:09:03,751 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 36, parentId - 22, name - Classic series
+2020-05-20 14:09:03,751 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 37, parentId - 22, name - Supreme series
+2020-05-20 14:09:03,751 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 41, parentId - 22, name - Аксессуары
+2020-05-20 14:09:03,752 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 29, parentId - 0, name - Беговые дорожки
+2020-05-20 14:09:03,752 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 34, parentId - 29, name - ST series
+2020-05-20 14:09:03,752 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 35, parentId - 29, name - MX series
+2020-05-20 14:09:03,753 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 49, parentId - 29, name - Ultra-Slim series
+2020-05-20 14:09:03,753 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 42, parentId - 29, name - Аксессуары
+2020-05-20 14:09:03,753 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 33, parentId - 0, name - Велотренажеры
+2020-05-20 14:09:03,755 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 48, parentId - 33, name - BL series
+2020-05-20 14:09:03,755 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 47, parentId - 33, name - SB series
+2020-05-20 14:09:03,755 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 31, parentId - 0, name - Эллиптические тренажеры
+2020-05-20 14:09:03,756 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 38, parentId - 31, name - SL series
+2020-05-20 14:09:03,756 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 39, parentId - 31, name - MV series
+2020-05-20 14:09:03,757 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 45, parentId - 31, name - Аксессуары
+2020-05-20 14:09:03,758 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 30, parentId - 0, name - Теннисные столы
+2020-05-20 14:09:03,758 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 32, parentId - 0, name - Аксессуары
+2020-05-20 14:09:03,758 INFO c.o.x.XmlCategories [http-nio-8080-exec-2]  id - 46, parentId - 0, name - Товары со скидкой
+2020-05-20 14:09:03,759 DEBUG c.o.x.XmlCategories [http-nio-8080-exec-2] Парсинг категорий прошел успешно

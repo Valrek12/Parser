@@ -77,7 +77,7 @@ public class DefaultController {
             return "/result";
         }catch (HttpStatusException ex){
             model.addAttribute("error", new MessageHandlerError());
-            return "error/500";
+            return "500";
         }
     }
 

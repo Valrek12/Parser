@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <div th:replace="fragments/header :: header-css"/>
 </head>
@@ -11,7 +11,7 @@
 
     <div class="starter-template">
         <h1>500 - internal server error</h1>
-        <div th:inline="text">Hello '[[${#httpServletRequest.remoteUser}]]', возникла ошибка в работе сервиса.</div>
+        <div th:inline="text"><span sec:authentication="name">, возникла ошибка в работе сервиса.</div>
     </div>
 
 </div>

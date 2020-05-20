@@ -1,12 +1,24 @@
 <!DOCTYPE HTML>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Handling Form Submission</title>
+    <title>Result Parsing</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+<div class="preloader">
+    <div class="preloader__row">
+        <div class="preloader__item"></div>
+        <div class="preloader__item"></div>
+    </div>
+</div>
+<div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+</div>
+
 <h1>Result</h1>
 <p th:text="'content: ' + ${contentTypeToXml.content}" />
 <a href="/parser">Submit another message</a>
+
+
 </body>
 </html>
