@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="container theme-showcase" role="main">
+    <form action="#" th:action="@{/parser}" th:object="${parser}" method="post">
+    <div class="jumbotron" aria-atomic="true">
+        <h1>Parser opencart</h1>
+        <p>Загрузка xml, парсинг товаров и категорий.</p>
+    </div>
+    <div class="form-group">
+        <input type="text" th:field="*{content}"  class="form-control input-lg" placeholder="Введите адресс Xml" required="true" autofocus="true"/>
+    </div>
+        <button type="submit" value="Submit" class="btn btn-default">Загрузить xml</button>
+    </form>
+</div>
+
+</body>
+</html>
