@@ -20,53 +20,53 @@ public class DefaultController {
 
     @GetMapping("/")
     public String home1() {
-        return "/home";
+        return "home";
     }
 
     @GetMapping("/home")
     public String home() {
-        return "/home";
+        return "home";
     }
 
     @GetMapping("/admin")
     public String admin() {
-        return "/admin";
+        return "admin";
     }
 
     @GetMapping("/user")
     public String user() {
-        return "/user";
+        return "user";
     }
 
     @GetMapping("/about")
     public String about() {
-        return "/about";
+        return "about";
     }
 
     @GetMapping("/login")
     public String login() {
-        return "/login";
+        return "login";
     }
 
     @GetMapping("/settings")
     public String settings() {
-        return "/settings";
+        return "settings";
     }
 
     @GetMapping("/reporting")
     public String reporting() {
-        return "/reporting";
+        return "reporting";
     }
 
     @GetMapping("/crm")
     public String crm() {
-        return "/crm";
+        return "crm";
     }
 
     @GetMapping("/parser")
     public String parserForm(Model model) {
         model.addAttribute("parser", new ContentTypeToXml());
-        return "/parser";
+        return "parser";
     }
 
     @PostMapping("/parser")
@@ -77,13 +77,13 @@ public class DefaultController {
             return "/result";
         }catch (HttpStatusException ex){
             model.addAttribute("error", new MessageHandlerError());
-            return "/500";
+            return "error/500";
         }
     }
 
     @GetMapping("/403")
     public String error403() {
-        return "/error/403";
+        return "error/403";
     }
 
 }
