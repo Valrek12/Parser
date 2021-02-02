@@ -1,4 +1,4 @@
-# Parcer
+# Parser
 для запуска jar необходимо:
 
 	а) java - 1.8 (open jdk или oracle, без разницы)
